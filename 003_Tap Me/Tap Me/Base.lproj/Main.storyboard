@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tap_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onF-Ym-MQ9">
+                                <rect key="frame" x="264" y="50" width="72" height="22"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorce" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-3T-iQ2">
+                                <rect key="frame" x="100" y="462" width="400" height="130"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="oPJ-LK-InE"/>
+                                    <constraint firstAttribute="height" constant="130" id="thb-7V-ij5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtC-ZC-QGB">
+                                <rect key="frame" x="175" y="167" width="250" height="265"/>
+                                <animations/>
+                                <state key="normal" backgroundImage="button_tap_deselected.png"/>
+                                <state key="highlighted" backgroundImage="button_tap_selected.png"/>
+                                <connections>
+                                    <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchDown" id="iaC-X2-bX6"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checker_top.png" translatesAutoresizingMaskIntoConstraints="NO" id="ENf-UD-V2C">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="22"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="3Ze-Zm-JfL"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checker_bottom.png" translatesAutoresizingMaskIntoConstraints="NO" id="aRN-Wm-HLC">
+                                <rect key="frame" x="0.0" y="578" width="600" height="22"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="U9i-tb-thm"/>
+                                    <constraint firstAttribute="height" constant="22" id="fAW-h5-D1O"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fAW-h5-D1O"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aEE-SC-ReL">
+                                <rect key="frame" x="0.0" y="-3" width="499" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qwb-37-t0k">
+                                        <rect key="frame" x="0.0" y="0.0" width="499" height="603"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z8B-0n-cP7">
+                                                <rect key="frame" x="0.0" y="0.0" width="499" height="603"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="af0-4x-KpA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="499" height="603"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omd-dY-v8r">
+                                                                <rect key="frame" x="0.0" y="0.0" width="499" height="603"/>
+                                                                <animations/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <animations/>
+                                                    </stackView>
+                                                </subviews>
+                                                <animations/>
+                                            </stackView>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.19918632507324219" green="0.96766382455825806" blue="0.04745897650718689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="onF-Ym-MQ9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4e9-ma-737"/>
+                            <constraint firstItem="aRN-Wm-HLC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="639-cW-ze8"/>
+                            <constraint firstItem="UDp-3T-iQ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mxv-DS-Ypr"/>
+                            <constraint firstItem="PtC-ZC-QGB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Odq-kk-wX0"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aRN-Wm-HLC" secondAttribute="bottom" id="TOK-wU-MwM"/>
+                            <constraint firstItem="onF-Ym-MQ9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="WEI-h9-Dp0"/>
+                            <constraint firstItem="ENf-UD-V2C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dr5-fI-MFh"/>
+                            <constraint firstItem="ENf-UD-V2C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gMw-DA-NCN"/>
+                            <constraint firstItem="PtC-ZC-QGB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lc7-Tr-r0h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UDp-3T-iQ2" secondAttribute="bottom" constant="8" id="rMj-aU-Xob"/>
+                            <constraint firstAttribute="trailing" secondItem="aRN-Wm-HLC" secondAttribute="trailing" id="wtb-24-iFg"/>
+                            <constraint firstAttribute="trailing" secondItem="ENf-UD-V2C" secondAttribute="trailing" id="xcu-w8-wg7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="UDp-3T-iQ2" id="cjq-JM-abv"/>
+                        <outlet property="timerLabel" destination="onF-Ym-MQ9" id="XhZ-gl-fm1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="267"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_tap_deselected.png" width="250" height="265"/>
+        <image name="button_tap_selected.png" width="250" height="265"/>
+        <image name="checker_bottom.png" width="320" height="23"/>
+        <image name="checker_top.png" width="320" height="22"/>
+    </resources>
+</document>
