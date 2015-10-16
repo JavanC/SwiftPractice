@@ -17,21 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onF-Ym-MQ9">
-                                <rect key="frame" x="264" y="50" width="72" height="22"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorce" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-3T-iQ2">
-                                <rect key="frame" x="100" y="462" width="400" height="130"/>
+                                <rect key="frame" x="234" y="50" width="133" height="46"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="oPJ-LK-InE"/>
-                                    <constraint firstAttribute="height" constant="130" id="thb-7V-ij5"/>
+                                    <constraint firstAttribute="height" constant="46" id="ex3-Fe-Efg"/>
+                                    <constraint firstAttribute="width" constant="133" id="v6D-WL-cIY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.02131366916000843" green="0.98986560106277466" blue="0.90206736326217651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtC-ZC-QGB">
@@ -63,20 +56,37 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorce" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-3T-iQ2">
+                                <rect key="frame" x="227" y="446" width="146" height="102"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="7Kx-lO-UQ8"/>
+                                    <constraint firstAttribute="width" constant="146" id="gFB-AR-aqK"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="130" id="yeR-9w-HWg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="0.02131366916000843" green="0.98986560106277466" blue="0.90206736326217651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yeR-9w-HWg"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.19918632507324219" green="0.96766382455825806" blue="0.04745897650718689" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="onF-Ym-MQ9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4e9-ma-737"/>
                             <constraint firstItem="aRN-Wm-HLC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="639-cW-ze8"/>
-                            <constraint firstItem="UDp-3T-iQ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mxv-DS-Ypr"/>
                             <constraint firstItem="PtC-ZC-QGB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Odq-kk-wX0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aRN-Wm-HLC" secondAttribute="bottom" id="TOK-wU-MwM"/>
                             <constraint firstItem="onF-Ym-MQ9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="WEI-h9-Dp0"/>
+                            <constraint firstItem="UDp-3T-iQ2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c5V-l7-Wbc"/>
                             <constraint firstItem="ENf-UD-V2C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dr5-fI-MFh"/>
                             <constraint firstItem="ENf-UD-V2C" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gMw-DA-NCN"/>
+                            <constraint firstItem="aRN-Wm-HLC" firstAttribute="top" secondItem="UDp-3T-iQ2" secondAttribute="bottom" constant="30" id="lDa-9h-86W"/>
                             <constraint firstItem="PtC-ZC-QGB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lc7-Tr-r0h"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UDp-3T-iQ2" secondAttribute="bottom" constant="8" id="rMj-aU-Xob"/>
                             <constraint firstAttribute="trailing" secondItem="aRN-Wm-HLC" secondAttribute="trailing" id="wtb-24-iFg"/>
                             <constraint firstAttribute="trailing" secondItem="ENf-UD-V2C" secondAttribute="trailing" id="xcu-w8-wg7"/>
                         </constraints>
