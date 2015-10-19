@@ -32,7 +32,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3jo-eH-KAX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LwW-cb-k5j">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -40,16 +40,16 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="3jo-eH-KAX" secondAttribute="bottom" id="WFn-8i-ubM"/>
-                            <constraint firstItem="3jo-eH-KAX" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="aNa-vO-yt1"/>
-                            <constraint firstAttribute="trailing" secondItem="3jo-eH-KAX" secondAttribute="trailing" id="cwa-vP-lr7"/>
-                            <constraint firstItem="3jo-eH-KAX" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="eh8-o1-KV4"/>
+                            <constraint firstItem="LwW-cb-k5j" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="Jkr-zN-4dv"/>
+                            <constraint firstItem="LwW-cb-k5j" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="WtN-of-dII"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="LwW-cb-k5j" secondAttribute="bottom" id="ofJ-dQ-5IP"/>
+                            <constraint firstAttribute="trailing" secondItem="LwW-cb-k5j" secondAttribute="trailing" id="qz4-wX-PBX"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="DetailViewController" destination="3jo-eH-KAX" id="Lab-LG-tx0"/>
+                        <outlet property="detailImageView" destination="LwW-cb-k5j" id="9Xx-GS-Nbn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
