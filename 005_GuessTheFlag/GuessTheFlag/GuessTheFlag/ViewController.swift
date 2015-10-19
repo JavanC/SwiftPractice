@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         askQuestion()
     }
     
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction! = nil) {
         countries = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(countries) as! [String]
         
         button1.setImage(UIImage(named: countries[0]), forState: .Normal)
@@ -45,7 +45,22 @@ class ViewController: UIViewController {
         correctAnswer = GKRandomSource.sharedRandom().nextIntWithUpperBound(3)
         title = countries[correctAnswer].uppercaseString
     }
-
+    
+    @IBAction func buttonTapped(sender: UIButton) {
+        var title: String
+        if sender.tag == correctAnswer {
+            title = "Correct"
+            ++score
+        } else {
+            title = "Wrong"
+            --score
+        }
+        
+        let ac = UIAlertController(title: title, message: "your score is \(score)", preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .Default, handler: askQuestion))
+        presentViewController(ac, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
