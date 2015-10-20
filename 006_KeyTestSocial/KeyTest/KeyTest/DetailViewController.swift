@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class DetailViewController: UIViewController {
     
@@ -36,9 +37,9 @@ class DetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareTapped")
     }
     
-    func shareTapped() {
-        let vc = UIActivityViewController(activityItems: [detailImageView.image!], applicationActivities: [])
-        presentViewController(vc, animated: true, completion: nil)
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -50,12 +51,18 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    func shareTapped() {
+        let vc = UIActivityViewController(activityItems: [detailImageView.image!], applicationActivities: [])
+        presentViewController(vc, animated: true, completion: nil)
     }
-
-
+    
+//    func shardTapped() {
+//        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//        vc.setInitialText("Look at this great picture!")
+//        vc.addImage(detailImageView.image!)
+//        vc.addURL(NSURL(string: "http://www.photolib.noaa.gov/nssl"))
+//        presentViewController(vc, animated: true, completion: nil)
+//    }
 }
 
