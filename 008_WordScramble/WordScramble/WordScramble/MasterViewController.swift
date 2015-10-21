@@ -16,6 +16,7 @@ class MasterViewController: UITableViewController {
     var allWords = [String]()
     
     override func viewDidLoad() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "promptForAnswer")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if let startWordsPath = NSBundle.mainBundle().pathForResource("start", ofType: "txt") {
@@ -28,12 +29,55 @@ class MasterViewController: UITableViewController {
         startGame()
     }
     
+    func promptForAnswer() {
+        let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .Alert)
+        ac.addTextFieldWithConfigurationHandler(nil)
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .Default) { [unowned self, ac] _ in
+            let answer = ac.textFields![0]
+            self.submitAnswer(answer.text!)
+        }
+        
+        ac.addAction(submitAction)
+        
+        presentViewController(ac, animated: true, completion: nil)
+    }
+    
+    func submitAnswer(answer: String) {
+        let lowerAnswer = answer.lowercaseString
+        
+        if wordIsPossible(lowerAnswer) {
+            if wordIsOriginal(lowerAnswer) {
+                if wordIsReal(lowerAnswer) {
+                    objects.insert(answer, atIndex: 0)
+                    
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                }
+            }
+        }
+    }
+    
+    func wordIsPossible(word: String) -> Bool {
+        return true
+    }
+    
+    func wordIsOriginal(word: String) -> Bool {
+        return true
+    }
+    
+    func wordIsReal(word: String) -> Bool {
+        return true
+    }
+    
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjectsInArray(allWords) as! [String]
         title = allWords[0]
         objects.removeAll(keepCapacity: true)
         tableView.reloadData()
     }
+    
+    
     
 
     override func viewWillAppear(animated: Bool) {
