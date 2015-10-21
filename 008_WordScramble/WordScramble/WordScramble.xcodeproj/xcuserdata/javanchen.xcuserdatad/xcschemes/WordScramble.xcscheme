@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "657A4E681BD75E850091522B"
+               BlueprintIdentifier = "657A4E881BD75FFD0091522B"
                BuildableName = "WordScramble.app"
                BlueprintName = "WordScramble"
                ReferencedContainer = "container:WordScramble.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "657A4E681BD75E850091522B"
+            BlueprintIdentifier = "657A4E881BD75FFD0091522B"
             BuildableName = "WordScramble.app"
             BlueprintName = "WordScramble"
             ReferencedContainer = "container:WordScramble.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "657A4E681BD75E850091522B"
+            BlueprintIdentifier = "657A4E881BD75FFD0091522B"
             BuildableName = "WordScramble.app"
             BlueprintName = "WordScramble"
             ReferencedContainer = "container:WordScramble.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "657A4E681BD75E850091522B"
+            BlueprintIdentifier = "657A4E881BD75FFD0091522B"
             BuildableName = "WordScramble.app"
             BlueprintName = "WordScramble"
             ReferencedContainer = "container:WordScramble.xcodeproj">
