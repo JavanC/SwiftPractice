@@ -13,6 +13,7 @@
 		657A4ED71BD796B50091522B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657A4ED51BD796B50091522B /* Main.storyboard */; };
 		657A4ED91BD796B50091522B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657A4ED81BD796B50091522B /* Assets.xcassets */; };
 		657A4EDC1BD796B50091522B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657A4EDA1BD796B50091522B /* LaunchScreen.storyboard */; };
+		8D4AD3F21BD932840051EB0E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4AD3F11BD932840051EB0E /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		657A4ED81BD796B50091522B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657A4EDB1BD796B50091522B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		657A4EDD1BD796B50091522B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D4AD3F11BD932840051EB0E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		657A4ECE1BD796B50091522B /* WhitehousePetitions */ = {
 			isa = PBXGroup;
 			children = (
+				8D4AD3F11BD932840051EB0E /* SwiftyJSON.swift */,
 				657A4ECF1BD796B50091522B /* AppDelegate.swift */,
 				657A4ED11BD796B50091522B /* MasterViewController.swift */,
 				657A4ED31BD796B50091522B /* DetailViewController.swift */,
@@ -140,6 +143,7 @@
 				657A4ED41BD796B50091522B /* DetailViewController.swift in Sources */,
 				657A4ED21BD796B50091522B /* MasterViewController.swift in Sources */,
 				657A4ED01BD796B50091522B /* AppDelegate.swift in Sources */,
+				8D4AD3F21BD932840051EB0E /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +293,7 @@
 				657A4EE21BD796B50091522B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

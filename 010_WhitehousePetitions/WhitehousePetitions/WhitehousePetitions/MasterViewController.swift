@@ -16,7 +16,18 @@ class MasterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        
+        if let url = NSURL(string: urlString) {
+            if let data = try? NSData(contentsOfURL: url, options: []) {
+                let json = JSON(data: data)
+                
+                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                    // we're OK to parse!
+                }
+            }
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
