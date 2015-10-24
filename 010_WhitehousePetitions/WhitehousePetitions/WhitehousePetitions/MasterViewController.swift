@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects = [[String: String]]()
 
 
     override func viewDidLoad() {
@@ -24,8 +24,7 @@ class MasterViewController: UITableViewController {
                 let json = JSON(data: data)
                 
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    // we're OK to parse!
-                }
+                    parseJSON(json)                }
             }
         }
     }
@@ -68,8 +67,21 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object.description
+        cell.textLabel!.text = object["title"]
+        cell.detailTextLabel!.text = object["body"]
         return cell
+    }
+    
+    // parseJson
+    func parseJSON(json: JSON) {
+        for result in json["results"].arrayValue {
+            let title = result["title"].stringValue
+            let body = result["body"].stringValue
+            let sigs = result["signatrueCount"].stringValue
+            let obj = ["title": title, "body": body, "sigs": sigs]
+            objects.append(obj)
+        }
+        tableView.reloadData()
     }
 }
 
