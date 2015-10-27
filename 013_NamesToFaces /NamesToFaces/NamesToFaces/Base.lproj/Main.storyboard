@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-xQ-qPe">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-xQ-qPe">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h1o-Mn-vrt">
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="f8G-WO-a42">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Person" id="f8G-WO-a42" customClass="PersonCell" customModule="NamesToFaces" customModuleProvider="target">
                                         <rect key="frame" x="10" y="74" width="140" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -51,6 +51,10 @@
                                         </view>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="QSd-a4-Cx1" id="Ig4-E5-luo"/>
+                                            <outlet property="name" destination="DtW-6a-2nw" id="wPl-6h-L5d"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -61,6 +65,12 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1b8-xQ-qPe" secondAttribute="trailing" id="Za0-vG-98E"/>
+                            <constraint firstItem="1b8-xQ-qPe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bWP-WT-kKI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1b8-xQ-qPe" secondAttribute="bottom" id="ltS-ig-bht"/>
+                            <constraint firstItem="1b8-xQ-qPe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xpi-Pg-vcB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xLX-d0-I0P"/>
                     <connections>
