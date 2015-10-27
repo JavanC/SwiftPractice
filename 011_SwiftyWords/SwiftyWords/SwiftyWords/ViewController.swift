@@ -19,13 +19,39 @@ class ViewController: UIViewController {
     var letterButtons = [UIButton]()
     var activatedButten = [UIButton]()
     var solutions = [String]()
-    
-    var score = 0
+
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
     var level = 1
     
     @IBAction func submitTapped(sender: UIButton) {
+        if let solutionPosition = solutions.indexOf(currentAnswer.text!) {
+            activatedButten.removeAll()
+            
+            var splitClues = answersLabel.text!.componentsSeparatedByString("\n")
+            splitClues[solutionPosition] = currentAnswer.text!
+            answersLabel.text = splitClues.joinWithSeparator("\n")
+            
+            currentAnswer.text = ""
+            ++score
+            
+            if score % 7 == 0 {
+                let ac = UIAlertController(title: "Well done!", message: "Are you ready for next level?", preferredStyle: .Alert)
+                ac.addAction(UIAlertAction(title: "Let's go!", style: .Default, handler: levelUp))
+                presentViewController(ac, animated: true, completion: nil)
+            }
+            
+        }
     }
     @IBAction func clearTapped(sender: UIButton) {
+        currentAnswer.text = ""
+        for btn in activatedButten {
+            btn.hidden = false
+        }
+        activatedButten.removeAll()
     }
 
     override func viewDidLoad() {
@@ -42,6 +68,23 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func levelUp(action: UIAlertAction!) {
+        ++level
+        solutions.removeAll(keepCapacity: true)
+        
+        loadLevel()
+        
+        for btn in letterButtons {
+            btn.hidden = false
+        }
+    }
+    
+    func letterTapped(btn: UIButton) {
+        currentAnswer.text = currentAnswer.text! + btn.titleLabel!.text!
+        activatedButten.append(btn)
+        btn.hidden = true
     }
     
     func loadLevel() {
