@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,25 +39,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         picker.delegate = self
         presentViewController(picker, animated: true, completion: nil)
     }
-    
+    //image picker controller
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         var newImage: UIImage
-        
+        //1. Edited or Original
         if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             newImage = possibleImage
-        } else if let possibleImage = info["UIImagePickerControllerOiginalImage"] as? UIImage {
+        } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             newImage = possibleImage
         } else {
             return
         }
-        
+        //2. unique filename
         let imageName = NSUUID().UUIDString
         let imagePath = getDocumentsDirectory().stringByAppendingPathComponent(imageName)
-        
+        //3. UIImage to NSData saveed
         if let jpegData = UIImageJPEGRepresentation(newImage, 80) {
             jpegData.writeToFile(imagePath, atomically: true)
         }
