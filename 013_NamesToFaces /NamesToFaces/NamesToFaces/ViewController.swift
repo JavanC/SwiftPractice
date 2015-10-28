@@ -27,12 +27,41 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // collect View setting
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return people.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Person", forIndexPath: indexPath) as! PersonCell
+        
+        let person = people[indexPath.item]
+        
+        cell.name.text = person.name
+        
+        let path = getDocumentsDirectory().stringByAppendingPathComponent(person.image)
+        cell.imageView.image = UIImage(contentsOfFile: path)
+        
+        cell.imageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).CGColor
+        cell.imageView.layer.borderWidth = 2
+        cell.imageView.layer.cornerRadius = 3
+        cell.layer.cornerRadius = 7
+        
         return cell
+    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let person = people[indexPath.item]
+        
+        let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .Alert)
+        ac.addTextFieldWithConfigurationHandler(nil)
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        ac.addAction(UIAlertAction(title: "OK", style: .Default) { [unowned self, ac] _ in
+            let newName = ac.textFields![0]
+            person.name = newName.text!
+            
+            self.collectionView.reloadData()
+        })
+        
+        presentViewController(ac, animated: true, completion: nil)
     }
     // add new person bar button function
     func addNewPerson() {
