@@ -9,6 +9,27 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var scoreLabel: SKLabelNode!
+    
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
+    
+    var editLabel: SKLabelNode!
+    
+    var editingMode: Bool = false {
+        didSet {
+            if editingMode {
+                editLabel.text = "Done"
+            } else {
+                editLabel.text = "Edit"
+            }
+        }
+    }
+    
     override func didMoveToView(view: SKView) {
         let backgroung = SKSpriteNode(imageNamed: "background.jpg")
         backgroung.position = CGPoint(x: 512, y: 384)
@@ -30,6 +51,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         makeSlotAt(CGPoint(x: 640, y: 0), isGood: true)
         makeSlotAt(CGPoint(x: 896, y: 0), isGood: false)
         
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .Right
+        scoreLabel.position = CGPoint(x: 980, y: 700)
+        addChild(scoreLabel)
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -110,8 +136,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func collisionBetweenBall(ball: SKNode, object: SKNode) {
         if object.name == "good" {
             destroyBall(ball)
+            ++score
         } else if object.name == "bad" {
             destroyBall(ball)
+            --score
         }
     }
     
