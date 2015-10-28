@@ -12,6 +12,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var people = [Person]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -61,7 +63,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if let jpegData = UIImageJPEGRepresentation(newImage, 80) {
             jpegData.writeToFile(imagePath, atomically: true)
         }
-        
+        //add person
+        let person = Person(name: "Unknown", image: imageName)
+        people.append(person)
+        collectionView.reloadData()
+        //close view controller
         dismissViewControllerAnimated(true, completion: nil)
     }
     
