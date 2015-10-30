@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
@@ -56,25 +57,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.horizontalAlignmentMode = .Right
         scoreLabel.position = CGPoint(x: 980, y: 700)
         addChild(scoreLabel)
+        
+        editLabel = SKLabelNode(fontNamed: "Chalkduster")
+        editLabel.text = "Edit"
+        editLabel.position = CGPoint(x: 80, y: 700)
+        addChild(editLabel)
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.locationInNode(self)
-            /// box physics body
-            //let box = SKSpriteNode(color: UIColor.redColor(), size: CGSize(width: 64, height: 64))
-            //box.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 64, height: 64))
-            //box.position = location
-            //addChild(box)
-            /// ball physics body
-            let ball = SKSpriteNode(imageNamed: "ballRed")
-            ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-            ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-            ball.physicsBody!.restitution = 0.4
-            ball.position = location
-            ball.name = "ball"
-            addChild(ball)
             
+            let objects = nodesAtPoint(location) as [SKNode]
+            if objects.contains(editLabel) {
+                editingMode = !editingMode
+            } else {
+                if editingMode {
+                    let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
+                    let box = SKSpriteNode(color: RandomColor(), size: size)
+                    box.zRotation = RandomCGFloat(min: 0, max: 3)
+                    box.position = location
+                    
+                    box.physicsBody = SKPhysicsBody(rectangleOfSize: box.size)
+                    box.physicsBody!.dynamic = false
+                    
+                    addChild(box)
+                } else {
+                    let ball = SKSpriteNode(imageNamed: "ballRed")
+                    ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+                    ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
+                    ball.physicsBody!.restitution = 0.4
+                    ball.position = location
+                    ball.name = "ball"
+                    addChild(ball)
+                }
+            }
         }
     }
    

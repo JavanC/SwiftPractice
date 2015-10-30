@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65355FD91BE35607000D377A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65355FD81BE35607000D377A /* Helper.swift */; };
 		65C910041BE099A400D62F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C910031BE099A400D62F85 /* AppDelegate.swift */; };
 		65C910061BE099A400D62F85 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 65C910051BE099A400D62F85 /* GameScene.sks */; };
 		65C910081BE099A400D62F85 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C910071BE099A400D62F85 /* GameScene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65355FD81BE35607000D377A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		65C910001BE099A400D62F85 /* Pachinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pachinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C910031BE099A400D62F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65C910051BE099A400D62F85 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		65C910021BE099A400D62F85 /* Pachinko */ = {
 			isa = PBXGroup;
 			children = (
+				65355FD81BE35607000D377A /* Helper.swift */,
 				65C910031BE099A400D62F85 /* AppDelegate.swift */,
 				65C910051BE099A400D62F85 /* GameScene.sks */,
 				65C910071BE099A400D62F85 /* GameScene.swift */,
@@ -145,6 +148,7 @@
 				65C910081BE099A400D62F85 /* GameScene.swift in Sources */,
 				65C9100A1BE099A400D62F85 /* GameViewController.swift in Sources */,
 				65C910041BE099A400D62F85 /* AppDelegate.swift in Sources */,
+				65355FD91BE35607000D377A /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +298,7 @@
 				65C910181BE099A400D62F85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
