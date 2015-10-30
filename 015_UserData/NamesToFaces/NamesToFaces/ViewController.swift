@@ -21,19 +21,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewPerson")
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setInteger(25, forKey: "Age")
-        defaults.setBool(true, forKey: "UseTouchID")
-        defaults.setDouble(M_PI, forKey: "Pi")
-        defaults.setObject("Paul Hudson", forKey: "Name")
-        defaults.setObject(NSData(), forKey: "LastRun")
-        let array = ["Hello", "World"]
-        defaults.setObject(array, forKey: "SavedArray")
-        
-        let dict = ["Name": "Paul", "Country": "UK"]
-        defaults.setObject(dict, forKey: "SavedDict")
-        
-        let array2 = defaults.objectForKey("SaveArray") as? [String] ?? [String]()
-        
+        if let savedPeople = defaults.objectForKey("people") as? NSData {
+            people = NSKeyedUnarchiver.unarchiveObjectWithData(savedPeople) as! [Person]
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +65,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             person.name = newName.text!
             
             self.collectionView.reloadData()
+            self.save()
         })
         
         presentViewController(ac, animated: true, completion: nil)
@@ -111,15 +102,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //add person
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        //save data
+        self.save()
+        //reloadData
         collectionView.reloadData()
         //close view controller
         dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     func getDocumentsDirectory() -> NSString {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths[0]
         return documentsDirectory
+    }
+    /**
+     Save Function
+     */
+    func save() {
+        let savedData = NSKeyedArchiver.archivedDataWithRootObject(people)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(savedData, forKey: "people")
     }
 }
 
