@@ -14,10 +14,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var people = [Person]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewPerson")
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(25, forKey: "Age")
+        defaults.setBool(true, forKey: "UseTouchID")
+        defaults.setDouble(M_PI, forKey: "Pi")
+        defaults.setObject("Paul Hudson", forKey: "Name")
+        defaults.setObject(NSData(), forKey: "LastRun")
+        let array = ["Hello", "World"]
+        defaults.setObject(array, forKey: "SavedArray")
+        
+        let dict = ["Name": "Paul", "Country": "UK"]
+        defaults.setObject(dict, forKey: "SavedDict")
+        
+        let array2 = defaults.objectForKey("SaveArray") as? [String] ?? [String]()
+        
     }
 
     override func didReceiveMemoryWarning() {
