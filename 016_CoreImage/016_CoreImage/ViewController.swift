@@ -17,15 +17,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var context: CIContext!
     var currentFilter: CIFilter!
     
-    @IBAction func ChangeFilter(sender: UIButton) {
-    }
-    @IBAction func save(sender: UIButton) {
-    }
-    @IBAction func intensityChanged(sender: UISlider) {
-        applyProcessing()
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,12 +26,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         context = CIContext(options: nil)
         currentFilter = CIFilter(name: "CISepiaTone")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    /**
+     *  importPicture
+     */
+    func importPicture() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        presentViewController(picker, animated: true, completion: nil)
     }
-
     /**
      *  Image picker setting
      */
@@ -64,26 +58,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         applyProcessing()
     }
-    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    /**
-    *  importPicture
-    */
-    func importPicture() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        presentViewController(picker, animated: true, completion: nil)
+    @IBAction func ChangeFilter(sender: UIButton) {
+        let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .ActionSheet)
+        ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIPixellate", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CISepiaTone", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIUnsharpMask", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIVignette", style: .Default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel , handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
     }
+    
+    func setFilter(action: UIAlertAction!) {
+        currentFilter = CIFilter(name: action.title!)
+        
+        let beginImage = CIImage(image: currentImage)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        
+        applyProcessing()
+    }
+    
+    @IBAction func save(sender: UIButton) {
+    }
+    @IBAction func intensityChanged(sender: UISlider) {
+        applyProcessing()
+    }
+
     /**
      *  applyProssing
      */
     func applyProcessing() {
-        currentFilter.setValue(intensity.value, forKey: kCIInputImageKey)
+        let inputKeys = currentFilter.inputKeys
         
+        if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey) }
+        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(intensity.value * 200, forKey: kCIInputRadiusKey) }
+        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey) }
+        if inputKeys.contains(kCIInputCenterKey) { currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey) }
+            
         let cgimg = context.createCGImage(currentFilter.outputImage!, fromRect: currentFilter.outputImage!.extent)
         let processedImage = UIImage(CGImage: cgimg)
         
