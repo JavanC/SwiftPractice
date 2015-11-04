@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aV-gs-IzM">
-                                <rect key="frame" x="226" y="283" width="149" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooF-aT-NND">
+                                <rect key="frame" x="213" y="281" width="175" height="39"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -28,14 +28,14 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5aV-gs-IzM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eRd-3O-Pc5"/>
-                            <constraint firstItem="5aV-gs-IzM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uYs-Fm-QwL"/>
+                            <constraint firstItem="ooF-aT-NND" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="E7e-Dm-syM"/>
+                            <constraint firstItem="ooF-aT-NND" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aYP-I6-bNE"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="339"/>
+            <point key="canvasLocation" x="245" y="337"/>
         </scene>
     </scenes>
 </document>

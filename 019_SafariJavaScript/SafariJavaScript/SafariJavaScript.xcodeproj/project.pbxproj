@@ -7,25 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		656CF6EE1BEA04A200C3362D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF6ED1BEA04A200C3362D /* AppDelegate.swift */; };
-		656CF6F01BEA04A200C3362D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF6EF1BEA04A200C3362D /* ViewController.swift */; };
-		656CF6F31BEA04A200C3362D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF6F11BEA04A200C3362D /* Main.storyboard */; };
-		656CF6F51BEA04A200C3362D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656CF6F41BEA04A200C3362D /* Assets.xcassets */; };
-		656CF6F81BEA04A200C3362D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF6F61BEA04A200C3362D /* LaunchScreen.storyboard */; };
+		656CF74F1BEA07ED00C3362D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF74E1BEA07ED00C3362D /* AppDelegate.swift */; };
+		656CF7511BEA07ED00C3362D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF7501BEA07ED00C3362D /* ViewController.swift */; };
+		656CF7541BEA07ED00C3362D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7521BEA07ED00C3362D /* Main.storyboard */; };
+		656CF7561BEA07ED00C3362D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7551BEA07ED00C3362D /* Assets.xcassets */; };
+		656CF7591BEA07ED00C3362D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7571BEA07ED00C3362D /* LaunchScreen.storyboard */; };
+		656CF7671BEA084F00C3362D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF7661BEA084F00C3362D /* ActionViewController.swift */; };
+		656CF76A1BEA084F00C3362D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7681BEA084F00C3362D /* MainInterface.storyboard */; };
+		656CF76E1BEA084F00C3362D /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 656CF7641BEA084F00C3362D /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		656CF76C1BEA084F00C3362D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 656CF7431BEA07ED00C3362D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 656CF7631BEA084F00C3362D;
+			remoteInfo = Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		656CF7721BEA084F00C3362D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				656CF76E1BEA084F00C3362D /* Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		656CF6EA1BEA04A200C3362D /* SafariJavaScript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafariJavaScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		656CF6ED1BEA04A200C3362D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		656CF6EF1BEA04A200C3362D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		656CF6F21BEA04A200C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		656CF6F41BEA04A200C3362D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		656CF6F71BEA04A200C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		656CF6F91BEA04A200C3362D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656CF74B1BEA07ED00C3362D /* SafariJavaScript.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafariJavaScript.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		656CF74E1BEA07ED00C3362D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		656CF7501BEA07ED00C3362D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		656CF7531BEA07ED00C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		656CF7551BEA07ED00C3362D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		656CF7581BEA07ED00C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		656CF75A1BEA07ED00C3362D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656CF7641BEA084F00C3362D /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		656CF7661BEA084F00C3362D /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		656CF7691BEA084F00C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		656CF76B1BEA084F00C3362D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		656CF6E71BEA04A200C3362D /* Frameworks */ = {
+		656CF7481BEA07ED00C3362D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		656CF7611BEA084F00C3362D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +73,105 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		656CF6E11BEA04A200C3362D = {
+		656CF7421BEA07ED00C3362D = {
 			isa = PBXGroup;
 			children = (
-				656CF6EC1BEA04A200C3362D /* SafariJavaScript */,
-				656CF6EB1BEA04A200C3362D /* Products */,
+				656CF74D1BEA07ED00C3362D /* SafariJavaScript */,
+				656CF7651BEA084F00C3362D /* Extension */,
+				656CF74C1BEA07ED00C3362D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		656CF6EB1BEA04A200C3362D /* Products */ = {
+		656CF74C1BEA07ED00C3362D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				656CF6EA1BEA04A200C3362D /* SafariJavaScript.app */,
+				656CF74B1BEA07ED00C3362D /* SafariJavaScript.app */,
+				656CF7641BEA084F00C3362D /* Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		656CF6EC1BEA04A200C3362D /* SafariJavaScript */ = {
+		656CF74D1BEA07ED00C3362D /* SafariJavaScript */ = {
 			isa = PBXGroup;
 			children = (
-				656CF6ED1BEA04A200C3362D /* AppDelegate.swift */,
-				656CF6EF1BEA04A200C3362D /* ViewController.swift */,
-				656CF6F11BEA04A200C3362D /* Main.storyboard */,
-				656CF6F41BEA04A200C3362D /* Assets.xcassets */,
-				656CF6F61BEA04A200C3362D /* LaunchScreen.storyboard */,
-				656CF6F91BEA04A200C3362D /* Info.plist */,
+				656CF74E1BEA07ED00C3362D /* AppDelegate.swift */,
+				656CF7501BEA07ED00C3362D /* ViewController.swift */,
+				656CF7521BEA07ED00C3362D /* Main.storyboard */,
+				656CF7551BEA07ED00C3362D /* Assets.xcassets */,
+				656CF7571BEA07ED00C3362D /* LaunchScreen.storyboard */,
+				656CF75A1BEA07ED00C3362D /* Info.plist */,
 			);
 			path = SafariJavaScript;
+			sourceTree = "<group>";
+		};
+		656CF7651BEA084F00C3362D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				656CF7661BEA084F00C3362D /* ActionViewController.swift */,
+				656CF7681BEA084F00C3362D /* MainInterface.storyboard */,
+				656CF76B1BEA084F00C3362D /* Info.plist */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		656CF6E91BEA04A200C3362D /* SafariJavaScript */ = {
+		656CF74A1BEA07ED00C3362D /* SafariJavaScript */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 656CF6FC1BEA04A200C3362D /* Build configuration list for PBXNativeTarget "SafariJavaScript" */;
+			buildConfigurationList = 656CF75D1BEA07ED00C3362D /* Build configuration list for PBXNativeTarget "SafariJavaScript" */;
 			buildPhases = (
-				656CF6E61BEA04A200C3362D /* Sources */,
-				656CF6E71BEA04A200C3362D /* Frameworks */,
-				656CF6E81BEA04A200C3362D /* Resources */,
+				656CF7471BEA07ED00C3362D /* Sources */,
+				656CF7481BEA07ED00C3362D /* Frameworks */,
+				656CF7491BEA07ED00C3362D /* Resources */,
+				656CF7721BEA084F00C3362D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				656CF76D1BEA084F00C3362D /* PBXTargetDependency */,
+			);
+			name = SafariJavaScript;
+			productName = SafariJavaScript;
+			productReference = 656CF74B1BEA07ED00C3362D /* SafariJavaScript.app */;
+			productType = "com.apple.product-type.application";
+		};
+		656CF7631BEA084F00C3362D /* Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 656CF76F1BEA084F00C3362D /* Build configuration list for PBXNativeTarget "Extension" */;
+			buildPhases = (
+				656CF7601BEA084F00C3362D /* Sources */,
+				656CF7611BEA084F00C3362D /* Frameworks */,
+				656CF7621BEA084F00C3362D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SafariJavaScript;
-			productName = SafariJavaScript;
-			productReference = 656CF6EA1BEA04A200C3362D /* SafariJavaScript.app */;
-			productType = "com.apple.product-type.application";
+			name = Extension;
+			productName = Extension;
+			productReference = 656CF7641BEA084F00C3362D /* Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		656CF6E21BEA04A200C3362D /* Project object */ = {
+		656CF7431BEA07ED00C3362D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Javan chen";
 				TargetAttributes = {
-					656CF6E91BEA04A200C3362D = {
+					656CF74A1BEA07ED00C3362D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					656CF7631BEA084F00C3362D = {
 						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
-			buildConfigurationList = 656CF6E51BEA04A200C3362D /* Build configuration list for PBXProject "SafariJavaScript" */;
+			buildConfigurationList = 656CF7461BEA07ED00C3362D /* Build configuration list for PBXProject "SafariJavaScript" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -107,62 +179,95 @@
 				en,
 				Base,
 			);
-			mainGroup = 656CF6E11BEA04A200C3362D;
-			productRefGroup = 656CF6EB1BEA04A200C3362D /* Products */;
+			mainGroup = 656CF7421BEA07ED00C3362D;
+			productRefGroup = 656CF74C1BEA07ED00C3362D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				656CF6E91BEA04A200C3362D /* SafariJavaScript */,
+				656CF74A1BEA07ED00C3362D /* SafariJavaScript */,
+				656CF7631BEA084F00C3362D /* Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		656CF6E81BEA04A200C3362D /* Resources */ = {
+		656CF7491BEA07ED00C3362D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656CF6F81BEA04A200C3362D /* LaunchScreen.storyboard in Resources */,
-				656CF6F51BEA04A200C3362D /* Assets.xcassets in Resources */,
-				656CF6F31BEA04A200C3362D /* Main.storyboard in Resources */,
+				656CF7591BEA07ED00C3362D /* LaunchScreen.storyboard in Resources */,
+				656CF7561BEA07ED00C3362D /* Assets.xcassets in Resources */,
+				656CF7541BEA07ED00C3362D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		656CF7621BEA084F00C3362D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656CF76A1BEA084F00C3362D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		656CF6E61BEA04A200C3362D /* Sources */ = {
+		656CF7471BEA07ED00C3362D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656CF6F01BEA04A200C3362D /* ViewController.swift in Sources */,
-				656CF6EE1BEA04A200C3362D /* AppDelegate.swift in Sources */,
+				656CF7511BEA07ED00C3362D /* ViewController.swift in Sources */,
+				656CF74F1BEA07ED00C3362D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		656CF7601BEA084F00C3362D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656CF7671BEA084F00C3362D /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		656CF76D1BEA084F00C3362D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 656CF7631BEA084F00C3362D /* Extension */;
+			targetProxy = 656CF76C1BEA084F00C3362D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		656CF6F11BEA04A200C3362D /* Main.storyboard */ = {
+		656CF7521BEA07ED00C3362D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				656CF6F21BEA04A200C3362D /* Base */,
+				656CF7531BEA07ED00C3362D /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		656CF6F61BEA04A200C3362D /* LaunchScreen.storyboard */ = {
+		656CF7571BEA07ED00C3362D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				656CF6F71BEA04A200C3362D /* Base */,
+				656CF7581BEA07ED00C3362D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		656CF7681BEA084F00C3362D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				656CF7691BEA084F00C3362D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		656CF6FA1BEA04A200C3362D /* Debug */ = {
+		656CF75B1BEA07ED00C3362D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -206,7 +311,7 @@
 			};
 			name = Debug;
 		};
-		656CF6FB1BEA04A200C3362D /* Release */ = {
+		656CF75C1BEA07ED00C3362D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,10 +348,11 @@
 			};
 			name = Release;
 		};
-		656CF6FD1BEA04A200C3362D /* Debug */ = {
+		656CF75E1BEA07ED00C3362D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SafariJavaScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript;
@@ -254,10 +360,11 @@
 			};
 			name = Debug;
 		};
-		656CF6FE1BEA04A200C3362D /* Release */ = {
+		656CF75F1BEA07ED00C3362D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SafariJavaScript/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript;
@@ -265,27 +372,57 @@
 			};
 			name = Release;
 		};
+		656CF7701BEA084F00C3362D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		656CF7711BEA084F00C3362D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		656CF6E51BEA04A200C3362D /* Build configuration list for PBXProject "SafariJavaScript" */ = {
+		656CF7461BEA07ED00C3362D /* Build configuration list for PBXProject "SafariJavaScript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				656CF6FA1BEA04A200C3362D /* Debug */,
-				656CF6FB1BEA04A200C3362D /* Release */,
+				656CF75B1BEA07ED00C3362D /* Debug */,
+				656CF75C1BEA07ED00C3362D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		656CF6FC1BEA04A200C3362D /* Build configuration list for PBXNativeTarget "SafariJavaScript" */ = {
+		656CF75D1BEA07ED00C3362D /* Build configuration list for PBXNativeTarget "SafariJavaScript" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				656CF6FD1BEA04A200C3362D /* Debug */,
-				656CF6FE1BEA04A200C3362D /* Release */,
+				656CF75E1BEA07ED00C3362D /* Debug */,
+				656CF75F1BEA07ED00C3362D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		656CF76F1BEA084F00C3362D /* Build configuration list for PBXNativeTarget "Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				656CF7701BEA084F00C3362D /* Debug */,
+				656CF7711BEA084F00C3362D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 656CF6E21BEA04A200C3362D /* Project object */;
+	rootObject = 656CF7431BEA07ED00C3362D /* Project object */;
 }
