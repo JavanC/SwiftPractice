@@ -46,6 +46,35 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.locationInNode(self)
+            let nodes = nodesAtPoint(location)
+            
+            for node in nodes {
+                if node.name == "charFriend" {
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.visible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    whackSlot.hit()
+                    score -= 5
+                    
+                    runAction(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+                } else if node.name == "charEnemy" {
+                    let whackSlot = node.parent!.parent as! WhackSlot
+                    if !whackSlot.visible { continue }
+                    if whackSlot.isHit { continue }
+                    
+                    whackSlot.charNode.xScale = 0.85
+                    whackSlot.charNode.yScale = 0.85
+                    
+                    whackSlot.hit()
+                    ++score
+                    
+                    runAction(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+                }
+            }
+        }
 
     }
    
