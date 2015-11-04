@@ -17,6 +17,7 @@
 		65B609151BE8B8D30040C575 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = 65B609061BE8B8D30040C575 /* whack.caf */; };
 		65B609181BE8B8D30040C575 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = 65B609091BE8B8D30040C575 /* whackBad.caf */; };
 		65B6091D1BE8B8D30040C575 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6090E1BE8B8D30040C575 /* Helper.swift */; };
+		65B6091F1BE990940040C575 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B6091E1BE990940040C575 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		65B609061BE8B8D30040C575 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		65B609091BE8B8D30040C575 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		65B6090E1BE8B8D30040C575 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		65B6091E1BE990940040C575 /* WhackSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				65B608F41BE8B7C80040C575 /* Assets.xcassets */,
 				65B608F61BE8B7C80040C575 /* LaunchScreen.storyboard */,
 				65B608F91BE8B7C80040C575 /* Info.plist */,
+				65B6091E1BE990940040C575 /* WhackSlot.swift */,
 			);
 			path = WhackPenguins;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B608EE1BE8B7C80040C575 /* GameScene.swift in Sources */,
+				65B6091F1BE990940040C575 /* WhackSlot.swift in Sources */,
 				65B608F01BE8B7C80040C575 /* GameViewController.swift in Sources */,
 				65B608EA1BE8B7C80040C575 /* AppDelegate.swift in Sources */,
 				65B6091D1BE8B8D30040C575 /* Helper.swift in Sources */,
