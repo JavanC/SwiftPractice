@@ -15,6 +15,7 @@
 		656CF7671BEA084F00C3362D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656CF7661BEA084F00C3362D /* ActionViewController.swift */; };
 		656CF76A1BEA084F00C3362D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7681BEA084F00C3362D /* MainInterface.storyboard */; };
 		656CF76E1BEA084F00C3362D /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 656CF7641BEA084F00C3362D /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		656CF7741BEA103B00C3362D /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 656CF7731BEA103B00C3362D /* Action.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		656CF7661BEA084F00C3362D /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		656CF7691BEA084F00C3362D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		656CF76B1BEA084F00C3362D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		656CF7731BEA103B00C3362D /* Action.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				656CF7661BEA084F00C3362D /* ActionViewController.swift */,
 				656CF7681BEA084F00C3362D /* MainInterface.storyboard */,
 				656CF76B1BEA084F00C3362D /* Info.plist */,
+				656CF7731BEA103B00C3362D /* Action.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656CF7741BEA103B00C3362D /* Action.js in Resources */,
 				656CF76A1BEA084F00C3362D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
