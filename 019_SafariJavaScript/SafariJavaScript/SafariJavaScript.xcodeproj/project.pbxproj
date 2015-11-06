@@ -361,6 +361,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c002d0f1-4a1a-43bd-8918-2bccad794cd0";
 			};
 			name = Debug;
 		};
@@ -373,6 +374,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.SafariJavaScript;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c002d0f1-4a1a-43bd-8918-2bccad794cd0";
 			};
 			name = Release;
 		};
@@ -417,6 +419,7 @@
 				656CF75F1BEA07ED00C3362D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		656CF76F1BEA084F00C3362D /* Build configuration list for PBXNativeTarget "Extension" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +428,7 @@
 				656CF7711BEA084F00C3362D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
