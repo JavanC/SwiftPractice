@@ -105,6 +105,63 @@ class GameScene: SKScene {
         if !swooshSoundActive {
             playSwooshSound()
         }
+        
+        let nodes = nodesAtPoint(location)
+        
+        for node in nodes {
+            if node.name == "enemy" {
+                // 1
+                let emitter = SKEmitterNode(fileNamed: "sliceHitEnemy.sks")!
+                emitter.position = node.position
+                addChild(emitter)
+                
+                // 2
+                node.name = ""
+                
+                // 3
+                node.physicsBody!.dynamic = false
+                
+                // 4
+                let scaleOut = SKAction.scaleTo(0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOutWithDuration(0.2)
+                let group = SKAction.group([scaleOut, fadeOut])
+                
+                // 5
+                let seq = SKAction.sequence([group, SKAction.removeFromParent()])
+                node.runAction(seq)
+                
+                // 6
+                ++score
+                
+                // 7
+                let index = activeEnemies.indexOf(node as! SKSpriteNode)!
+                activeEnemies.removeAtIndex(index)
+                
+                // 8
+                runAction(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+            } else if node.name == "bomb" {
+                let emitter = SKEmitterNode(fileNamed: "sliceHitBomb.sks")!
+                emitter.position = node.parent!.position
+                addChild(emitter)
+                
+                node.name = ""
+                node.parent!.physicsBody!.dynamic = false
+                
+                let scaleOut = SKAction.scaleTo(0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOutWithDuration(0.2)
+                let group = SKAction.group([scaleOut, fadeOut])
+                
+                let seq = SKAction.sequence([group, SKAction.removeFromParent()])
+                
+                node.parent!.runAction(seq)
+                
+                let index = activeEnemies.indexOf(node.parent as! SKSpriteNode)!
+                activeEnemies.removeAtIndex(index)
+                
+                runAction(SKAction.playSoundFileNamed("explosion.caf", waitForCompletion: false))
+                endGame(triggeredByBomb: true)
+            }
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -165,10 +222,24 @@ class GameScene: SKScene {
         if activeEnemies.count > 0 {
             for node in activeEnemies {
                 if node.position.y < -140 {
-                    node.removeFromParent()
+                    node.removeAllActions()
                     
-                    if let index = activeEnemies.indexOf(node) {
-                        activeEnemies.removeAtIndex(index)
+                    if node.name == "emeny" {
+                        node.name = ""
+                        subtractLife()
+                        
+                        node.removeFromParent()
+                        
+                        if let index = activeEnemies.indexOf(node) {
+                            activeEnemies.removeAtIndex(index)
+                        }
+                    } else if node.name == "bombContainer" {
+                        node.name = ""
+                        node.removeFromParent()
+                        
+                        if let index = activeEnemies.indexOf(node) {
+                            activeEnemies.removeAtIndex(index)
+                        }
                     }
                 }
             }
