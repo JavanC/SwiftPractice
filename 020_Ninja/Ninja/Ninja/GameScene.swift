@@ -19,6 +19,7 @@ class GameScene: SKScene {
     }
     var livesImages = [SKSpriteNode]()
     var lives = 3
+    var activeSlicePoints = [CGPoint]()
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -38,6 +39,26 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        
+        let location = touch.locationInNode(self)
+        
+        activeSlicePoints.append(location)
+//        redrawActiveSlice()
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        activeSliceBG.runAction(SKAction.fadeOutWithDuration(0.25))
+        activeSliceFG.runAction(SKAction.fadeOutWithDuration(0.25))
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        if let touches = touches {
+            touchesEnded(touches, withEvent: event)
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {
