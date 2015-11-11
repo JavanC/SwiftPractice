@@ -32,7 +32,7 @@ class GameScene: SKScene {
         
         createScore()
         createLives()
-        //        createSlices()
+        createSlices()
         
     }
     
@@ -68,7 +68,7 @@ class GameScene: SKScene {
         }
     }
     
-    func creatSlices() {
+    func createSlices() {
         activeSliceBG = SKShapeNode()
         activeSliceBG.zPosition = 2
         
