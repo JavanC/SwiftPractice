@@ -20,6 +20,7 @@ class GameScene: SKScene {
     var livesImages = [SKSpriteNode]()
     var lives = 3
     var activeSlicePoints = [CGPoint]()
+    var swooshSoundActive = false
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "sliceBackground")
@@ -68,6 +69,10 @@ class GameScene: SKScene {
         
         activeSlicePoints.append(location)
         redrawActiveSlice()
+        
+        if !swooshSoundActive {
+            playSwooshSound()
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -150,5 +155,18 @@ class GameScene: SKScene {
         
         addChild(activeSliceBG)
         addChild(activeSliceFG)
+    }
+    
+    func playSwooshSound() {
+        swooshSoundActive = true
+        
+        let randomNumber = RandomInt(min: 1, max: 3)
+        let soundName = "swoosh\(randomNumber).caf"
+        
+        let swooshSound = SKAction.playSoundFileNamed(soundName, waitForCompletion: true)
+        
+        runAction(swooshSound) { [unowned self] in
+            self.swooshSoundActive = false
+        }
     }
 }
