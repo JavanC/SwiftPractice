@@ -25,6 +25,12 @@ class ViewController: UIViewController, ADBannerViewDelegate {
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewDictionary))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewDictionary))
         
+        assert(1 == 1, "Maths failure!")
+//        assert(1 == 2, "Maths failure!")
+        
+        for i in 1 ... 100 {
+            print("Got number \(i)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
