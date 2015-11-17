@@ -7,99 +7,108 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6502ED241BF571F3000BBF5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6502ED231BF571F3000BBF5B /* AppDelegate.swift */; };
-		6502ED261BF571F3000BBF5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6502ED251BF571F3000BBF5B /* ViewController.swift */; };
-		6502ED291BF571F3000BBF5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6502ED271BF571F3000BBF5B /* Main.storyboard */; };
-		6502ED2B1BF571F3000BBF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6502ED2A1BF571F3000BBF5B /* Assets.xcassets */; };
-		6502ED2E1BF571F3000BBF5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6502ED2C1BF571F3000BBF5B /* LaunchScreen.storyboard */; };
+		65A26A391BFAD7FE0021AB58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A26A381BFAD7FE0021AB58 /* AppDelegate.swift */; };
+		65A26A3B1BFAD7FE0021AB58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A26A3A1BFAD7FE0021AB58 /* ViewController.swift */; };
+		65A26A3E1BFAD7FE0021AB58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A26A3C1BFAD7FE0021AB58 /* Main.storyboard */; };
+		65A26A401BFAD7FE0021AB58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A26A3F1BFAD7FE0021AB58 /* Assets.xcassets */; };
+		65A26A431BFAD7FE0021AB58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A26A411BFAD7FE0021AB58 /* LaunchScreen.storyboard */; };
+		65A26A4B1BFAD85A0021AB58 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A26A4A1BFAD85A0021AB58 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6502ED201BF571F3000BBF5B /* MapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6502ED231BF571F3000BBF5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6502ED251BF571F3000BBF5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6502ED281BF571F3000BBF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6502ED2A1BF571F3000BBF5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6502ED2D1BF571F3000BBF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6502ED2F1BF571F3000BBF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A26A351BFAD7FE0021AB58 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A26A381BFAD7FE0021AB58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65A26A3A1BFAD7FE0021AB58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65A26A3D1BFAD7FE0021AB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65A26A3F1BFAD7FE0021AB58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65A26A421BFAD7FE0021AB58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65A26A441BFAD7FE0021AB58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65A26A4A1BFAD85A0021AB58 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6502ED1D1BF571F3000BBF5B /* Frameworks */ = {
+		65A26A321BFAD7FE0021AB58 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65A26A4B1BFAD85A0021AB58 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6502ED171BF571F3000BBF5B = {
+		65A26A2C1BFAD7FE0021AB58 = {
 			isa = PBXGroup;
 			children = (
-				6502ED221BF571F3000BBF5B /* MapKit */,
-				6502ED211BF571F3000BBF5B /* Products */,
+				65A26A4A1BFAD85A0021AB58 /* MapKit.framework */,
+				65A26A371BFAD7FE0021AB58 /* Maps */,
+				65A26A361BFAD7FE0021AB58 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6502ED211BF571F3000BBF5B /* Products */ = {
+		65A26A361BFAD7FE0021AB58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6502ED201BF571F3000BBF5B /* MapKit.app */,
+				65A26A351BFAD7FE0021AB58 /* Maps.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6502ED221BF571F3000BBF5B /* MapKit */ = {
+		65A26A371BFAD7FE0021AB58 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				6502ED231BF571F3000BBF5B /* AppDelegate.swift */,
-				6502ED251BF571F3000BBF5B /* ViewController.swift */,
-				6502ED271BF571F3000BBF5B /* Main.storyboard */,
-				6502ED2A1BF571F3000BBF5B /* Assets.xcassets */,
-				6502ED2C1BF571F3000BBF5B /* LaunchScreen.storyboard */,
-				6502ED2F1BF571F3000BBF5B /* Info.plist */,
+				65A26A381BFAD7FE0021AB58 /* AppDelegate.swift */,
+				65A26A3A1BFAD7FE0021AB58 /* ViewController.swift */,
+				65A26A3C1BFAD7FE0021AB58 /* Main.storyboard */,
+				65A26A3F1BFAD7FE0021AB58 /* Assets.xcassets */,
+				65A26A411BFAD7FE0021AB58 /* LaunchScreen.storyboard */,
+				65A26A441BFAD7FE0021AB58 /* Info.plist */,
 			);
-			path = MapKit;
+			path = Maps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6502ED1F1BF571F3000BBF5B /* MapKit */ = {
+		65A26A341BFAD7FE0021AB58 /* Maps */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6502ED321BF571F3000BBF5B /* Build configuration list for PBXNativeTarget "MapKit" */;
+			buildConfigurationList = 65A26A471BFAD7FE0021AB58 /* Build configuration list for PBXNativeTarget "Maps" */;
 			buildPhases = (
-				6502ED1C1BF571F3000BBF5B /* Sources */,
-				6502ED1D1BF571F3000BBF5B /* Frameworks */,
-				6502ED1E1BF571F3000BBF5B /* Resources */,
+				65A26A311BFAD7FE0021AB58 /* Sources */,
+				65A26A321BFAD7FE0021AB58 /* Frameworks */,
+				65A26A331BFAD7FE0021AB58 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MapKit;
-			productName = MapKit;
-			productReference = 6502ED201BF571F3000BBF5B /* MapKit.app */;
+			name = Maps;
+			productName = Maps;
+			productReference = 65A26A351BFAD7FE0021AB58 /* Maps.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6502ED181BF571F3000BBF5B /* Project object */ = {
+		65A26A2D1BFAD7FE0021AB58 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Javan chen";
 				TargetAttributes = {
-					6502ED1F1BF571F3000BBF5B = {
-						CreatedOnToolsVersion = 7.1;
+					65A26A341BFAD7FE0021AB58 = {
+						CreatedOnToolsVersion = 7.1.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = 6502ED1B1BF571F3000BBF5B /* Build configuration list for PBXProject "MapKit" */;
+			buildConfigurationList = 65A26A301BFAD7FE0021AB58 /* Build configuration list for PBXProject "Maps" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -107,54 +116,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 6502ED171BF571F3000BBF5B;
-			productRefGroup = 6502ED211BF571F3000BBF5B /* Products */;
+			mainGroup = 65A26A2C1BFAD7FE0021AB58;
+			productRefGroup = 65A26A361BFAD7FE0021AB58 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6502ED1F1BF571F3000BBF5B /* MapKit */,
+				65A26A341BFAD7FE0021AB58 /* Maps */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6502ED1E1BF571F3000BBF5B /* Resources */ = {
+		65A26A331BFAD7FE0021AB58 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6502ED2E1BF571F3000BBF5B /* LaunchScreen.storyboard in Resources */,
-				6502ED2B1BF571F3000BBF5B /* Assets.xcassets in Resources */,
-				6502ED291BF571F3000BBF5B /* Main.storyboard in Resources */,
+				65A26A431BFAD7FE0021AB58 /* LaunchScreen.storyboard in Resources */,
+				65A26A401BFAD7FE0021AB58 /* Assets.xcassets in Resources */,
+				65A26A3E1BFAD7FE0021AB58 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6502ED1C1BF571F3000BBF5B /* Sources */ = {
+		65A26A311BFAD7FE0021AB58 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6502ED261BF571F3000BBF5B /* ViewController.swift in Sources */,
-				6502ED241BF571F3000BBF5B /* AppDelegate.swift in Sources */,
+				65A26A3B1BFAD7FE0021AB58 /* ViewController.swift in Sources */,
+				65A26A391BFAD7FE0021AB58 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6502ED271BF571F3000BBF5B /* Main.storyboard */ = {
+		65A26A3C1BFAD7FE0021AB58 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6502ED281BF571F3000BBF5B /* Base */,
+				65A26A3D1BFAD7FE0021AB58 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6502ED2C1BF571F3000BBF5B /* LaunchScreen.storyboard */ = {
+		65A26A411BFAD7FE0021AB58 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6502ED2D1BF571F3000BBF5B /* Base */,
+				65A26A421BFAD7FE0021AB58 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -162,7 +171,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6502ED301BF571F3000BBF5B /* Debug */ = {
+		65A26A451BFAD7FE0021AB58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -206,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		6502ED311BF571F3000BBF5B /* Release */ = {
+		65A26A461BFAD7FE0021AB58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -243,24 +252,24 @@
 			};
 			name = Release;
 		};
-		6502ED331BF571F3000BBF5B /* Debug */ = {
+		65A26A481BFAD7FE0021AB58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MapKit/Info.plist;
+				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.MapKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.Maps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		6502ED341BF571F3000BBF5B /* Release */ = {
+		65A26A491BFAD7FE0021AB58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = MapKit/Info.plist;
+				INFOPLIST_FILE = Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.MapKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.Maps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -268,24 +277,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6502ED1B1BF571F3000BBF5B /* Build configuration list for PBXProject "MapKit" */ = {
+		65A26A301BFAD7FE0021AB58 /* Build configuration list for PBXProject "Maps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6502ED301BF571F3000BBF5B /* Debug */,
-				6502ED311BF571F3000BBF5B /* Release */,
+				65A26A451BFAD7FE0021AB58 /* Debug */,
+				65A26A461BFAD7FE0021AB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6502ED321BF571F3000BBF5B /* Build configuration list for PBXNativeTarget "MapKit" */ = {
+		65A26A471BFAD7FE0021AB58 /* Build configuration list for PBXNativeTarget "Maps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6502ED331BF571F3000BBF5B /* Debug */,
-				6502ED341BF571F3000BBF5B /* Release */,
+				65A26A481BFAD7FE0021AB58 /* Debug */,
+				65A26A491BFAD7FE0021AB58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6502ED181BF571F3000BBF5B /* Project object */;
+	rootObject = 65A26A2D1BFAD7FE0021AB58 /* Project object */;
 }

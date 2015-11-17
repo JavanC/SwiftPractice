@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6502ED1F1BF571F3000BBF5B"
-               BuildableName = "MapKit.app"
-               BlueprintName = "MapKit"
-               ReferencedContainer = "container:MapKit.xcodeproj">
+               BlueprintIdentifier = "65A26A341BFAD7FE0021AB58"
+               BuildableName = "Maps.app"
+               BlueprintName = "Maps"
+               ReferencedContainer = "container:Maps.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6502ED1F1BF571F3000BBF5B"
-            BuildableName = "MapKit.app"
-            BlueprintName = "MapKit"
-            ReferencedContainer = "container:MapKit.xcodeproj">
+            BlueprintIdentifier = "65A26A341BFAD7FE0021AB58"
+            BuildableName = "Maps.app"
+            BlueprintName = "Maps"
+            ReferencedContainer = "container:Maps.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6502ED1F1BF571F3000BBF5B"
-            BuildableName = "MapKit.app"
-            BlueprintName = "MapKit"
-            ReferencedContainer = "container:MapKit.xcodeproj">
+            BlueprintIdentifier = "65A26A341BFAD7FE0021AB58"
+            BuildableName = "Maps.app"
+            BlueprintName = "Maps"
+            ReferencedContainer = "container:Maps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6502ED1F1BF571F3000BBF5B"
-            BuildableName = "MapKit.app"
-            BlueprintName = "MapKit"
-            ReferencedContainer = "container:MapKit.xcodeproj">
+            BlueprintIdentifier = "65A26A341BFAD7FE0021AB58"
+            BuildableName = "Maps.app"
+            BlueprintName = "Maps"
+            ReferencedContainer = "container:Maps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

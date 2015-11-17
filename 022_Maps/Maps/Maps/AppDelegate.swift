@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  MapKit
+//  Maps
 //
-//  Created by javan.chen on 2015/11/13.
+//  Created by javan.chen on 2015/11/17.
 //  Copyright © 2015年 Javan chen. All rights reserved.
 //
 
