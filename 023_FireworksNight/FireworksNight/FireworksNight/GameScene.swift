@@ -17,9 +17,10 @@ class GameScene: SKScene {
     let bottomEdge = -22
     let rightEdge = 1024 + 22
     
+    var gameScore: SKLabelNode!
     var score: Int = 0 {
         didSet{
-            //your code here
+            gameScore.text = "Score: \(score)"
         }
     }
     
@@ -29,8 +30,18 @@ class GameScene: SKScene {
         background.blendMode = .Replace
         background.zPosition = -1
         addChild(background)
+        creatScore()
         
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: "launchFireworks", userInfo: nil, repeats: true)
+    }
+    
+    func creatScore() {
+        gameScore = SKLabelNode(fontNamed: "Chalkduster")
+        gameScore.text = "Score: 0"
+        gameScore.horizontalAlignmentMode = .Left
+        gameScore.fontSize = 40
+        gameScore.position = CGPoint(x: 8, y: 8)
+        addChild(gameScore)
     }
     
     func checkForTouches(touches: Set<UITouch>) {
@@ -167,6 +178,47 @@ class GameScene: SKScene {
             
         default:
             break
+        }
+    }
+    
+    func explodeFirework(firework: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "explode.sks")!
+        emitter.position = firework.position
+        addChild(emitter)
+        
+        firework.removeFromParent()
+    }
+    
+    func explodeFireworks() {
+        var numExploded = 0
+        
+        for var i = fireworks.count - 1; i >= 0; --i {
+            let parent = fireworks[i]
+            let firework = parent.children[0] as! SKSpriteNode
+            
+            if firework.name == "selected" {
+                // destroy this firework!
+                explodeFirework(parent)
+                fireworks.removeAtIndex(i)
+                
+                ++numExploded
+            }
+        }
+        
+        switch numExploded {
+        case 0:
+            // nothing - tubbish!
+            break
+        case 1:
+            score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
         }
     }
 }
