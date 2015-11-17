@@ -33,7 +33,40 @@ class GameScene: SKScene {
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(6, target: self, selector: "launchFireworks", userInfo: nil, repeats: true)
     }
     
+    func checkForTouches(touches: Set<UITouch>) {
+        guard let touch = touches.first else { return }
+        
+        let location = touch.locationInNode(self)
+        let nodes = nodesAtPoint(location)
+        
+        for node in nodes {
+            if node.isKindOfClass(SKSpriteNode.self) {
+                let sprite = node as! SKSpriteNode
+                
+                if sprite.name == "firework" {
+                    for parent in fireworks {
+                        let firework = parent.children[0] as! SKSpriteNode
+
+                        if firework.name == "selected" && firework.color != sprite.color {
+                            firework.name = "firework"
+                            firework.colorBlendFactor = 1
+                        }
+                    }
+                    sprite.name = "selected"
+                    sprite.colorBlendFactor = 0
+                }
+            }
+        }
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        checkForTouches(touches)
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesMoved(touches, withEvent: event)
+        checkForTouches(touches)
     }
    
     override func update(currentTime: CFTimeInterval) {
