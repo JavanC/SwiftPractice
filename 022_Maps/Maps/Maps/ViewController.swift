@@ -28,5 +28,42 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        // 1
+        let identufier = "Capital"
+        
+        // 2
+        if annotation.isKindOfClass(Capital.self) {
+            // 3
+            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identufier)
+            
+            if annotationView == nil {
+                // 4
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identufier)
+                annotationView!.canShowCallout = true
+                
+                //5
+                let btn = UIButton(type: .DetailDisclosure)
+                annotationView!.rightCalloutAccessoryView = btn
+            } else {
+                // 6
+                annotationView!.annotation = annotation
+            }
+            return annotationView
+        }
+        // 7
+        return nil
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let capital = view.annotation as! Capital
+        let placeName = capital.title
+        let placeInfo = capital.info
+        
+        let ac = UIAlertController(title: placeName, message: placeInfo, preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
+    }
 }
 
