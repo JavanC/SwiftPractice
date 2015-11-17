@@ -70,7 +70,15 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        for var i = fireworks.count - 1; i >= 0; --i {
+            let firework = fireworks[i]
+            
+            if firework.position.y > 900 {
+                // this uses a position high above so that rocket can explode off screen
+                fireworks.removeAtIndex(i)
+                firework.removeFromParent()
+            }
+        }
     }
     
     func createFirework(xMovement xMovement: CGFloat, x: Int, y: Int) {
