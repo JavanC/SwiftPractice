@@ -158,7 +158,6 @@ class GameScene: SKScene {
             createFirework(xMovement: -100, x: 512 - 100, y: bottomEdge)
             createFirework(xMovement: 100, x: 512 + 100, y: bottomEdge)
             createFirework(xMovement: 200, x: 512 + 200, y: bottomEdge)
-        
             
         case 2:
             // fire five, from the left to the right
