@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="2320" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
@@ -17,30 +17,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-7u-FDy">
-                                <rect key="frame" x="252" y="250" width="97" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UTV-D0-4bn">
+                                <rect key="frame" x="200" y="250" width="200" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-7u-FDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
+                                        <animations/>
+                                        <state key="normal" title="Register Local"/>
+                                        <connections>
+                                            <action selector="registerLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4V-dv-thC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-1n-f6y">
+                                        <rect key="frame" x="0.0" y="70" width="200" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Schedule Local"/>
+                                        <connections>
+                                            <action selector="scheduleLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTx-wD-KWL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <state key="normal" title="Register Local"/>
-                                <connections>
-                                    <action selector="registerLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4V-dv-thC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-1n-f6y">
-                                <rect key="frame" x="248" y="319" width="105" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Schedule Local"/>
-                                <connections>
-                                    <action selector="scheduleLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTx-wD-KWL"/>
-                                </connections>
-                            </button>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Fx8-De-zuw"/>
+                                    <constraint firstAttribute="height" constant="100" id="bDB-Qg-ebj"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ucd-1n-f6y" firstAttribute="top" secondItem="mhZ-7u-FDy" secondAttribute="bottom" constant="39" id="79N-r7-suC"/>
-                            <constraint firstItem="Ucd-1n-f6y" firstAttribute="centerX" secondItem="mhZ-7u-FDy" secondAttribute="centerX" id="O0a-pF-YFs"/>
-                            <constraint firstItem="mhZ-7u-FDy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="230" id="duF-br-gDp"/>
-                            <constraint firstItem="mhZ-7u-FDy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qZa-p3-Aaz"/>
+                            <constraint firstItem="UTV-D0-4bn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K24-b1-kCi"/>
+                            <constraint firstItem="UTV-D0-4bn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lp3-Dr-De8"/>
                         </constraints>
                     </view>
                 </viewController>
