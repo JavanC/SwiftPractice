@@ -18,19 +18,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UTV-D0-4bn">
-                                <rect key="frame" x="200" y="250" width="200" height="100"/>
+                                <rect key="frame" x="248" y="250" width="105" height="100"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-7u-FDy">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhZ-7u-FDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="50"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5c1-Jf-msl"/>
+                                        </constraints>
                                         <state key="normal" title="Register Local"/>
                                         <connections>
                                             <action selector="registerLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t4V-dv-thC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-1n-f6y">
-                                        <rect key="frame" x="0.0" y="70" width="200" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucd-1n-f6y">
+                                        <rect key="frame" x="0.0" y="50" width="105" height="50"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bPT-Nz-Rbg"/>
+                                        </constraints>
                                         <state key="normal" title="Schedule Local"/>
                                         <connections>
                                             <action selector="scheduleLocal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fTx-wD-KWL"/>
@@ -38,10 +44,6 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Fx8-De-zuw"/>
-                                    <constraint firstAttribute="height" constant="100" id="bDB-Qg-ebj"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <animations/>
