@@ -16,12 +16,34 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNKNOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-Wo-3hf">
+                                <rect key="frame" x="175" y="230" width="250" height="140"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="O4P-jt-dCM"/>
+                                    <constraint firstAttribute="width" constant="250" id="m2E-bs-q01"/>
+                                    <constraint firstAttribute="height" constant="140" id="tTt-iY-KLe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cq1-Wo-3hf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GtF-R4-g7X"/>
+                            <constraint firstItem="Cq1-Wo-3hf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="R8Y-nQ-DcM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceReading" destination="Cq1-Wo-3hf" id="2d0-RU-7SG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="337"/>
         </scene>
     </scenes>
 </document>
