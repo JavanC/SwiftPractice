@@ -53,7 +53,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        var location = touch.locationInNode(self)
+        
+        if location.y < 100 {
+            location.y = 100
+        } else if location.y > 668 {
+            location.y = 668
+        }
+        
+        player.position = location
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -83,5 +95,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
         
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let explosion = SKEmitterNode(fileNamed: "explosion.sks")!
+        explosion.position = player.position
+        addChild(explosion)
+        
+        player.removeFromParent()
+        
+        gameOver = true
     }
 }
