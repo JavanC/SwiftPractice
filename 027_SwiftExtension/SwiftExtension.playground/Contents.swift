@@ -19,6 +19,12 @@ extension UIColor {
     }
 }
 
+extension String {
+    mutating func trim() {
+        self = stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    }
+}
+
 var myInt = 0
 
 myInt.plusOne()
@@ -29,3 +35,4 @@ var otherInt = 10
 otherInt.plusOne()
 
 Int.random(min: 1, max: 10)
+
