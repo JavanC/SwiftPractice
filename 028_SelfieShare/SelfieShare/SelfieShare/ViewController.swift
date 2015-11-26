@@ -72,6 +72,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         images.insert(newImage, atIndex: 0)
         collectionView.reloadData()
+        
+        // 1 Check if there are any peers to send to.
+        if mcSession.connectedPeers.count > 0 {
+            // 2 Convert the new image to an NSData object
+            if let imageData = UIImagePNGRepresentation(newImage) {
+                // 3 Send it to all peers, ensuring it gets delivered
+                do {
+                    try mcSession.sendData(imageData, toPeers: mcSession.connectedPeers, withMode: .Reliable)
+                } catch let error as NSError {
+                    let ac = UIAlertController(title: "Send error", message: error.localizedDescription, preferredStyle: .Alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    presentViewController(ac, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
