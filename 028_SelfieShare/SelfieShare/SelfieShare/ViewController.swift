@@ -7,17 +7,27 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    // images
     var images = [UIImage]()
-
+    // MC
+    var peerID: MCPeerID!
+    var mcSession: MCSession!
+    var mcAdvertiserAssistant: MCAdvertiserAssistant!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // View
         title = "Selfie Share"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Camera, target: self, action: "importPicture")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "showConnectionPrompt")
+        // MCSession
+        peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
+        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .Required)
+        mcSession.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,5 +77,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // Connection Prompt
+    func showConnectionPrompt() {
+        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .ActionSheet)
+        ac.addAction(UIAlertAction(title: "Host a session", style: .Default, handler: startHosting))
+        ac.addAction(UIAlertAction(title: "Join a session", style: .Default, handler: joinSession))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
+    }
+    
+    func startHosting(action: UIAlertAction!) {
+        mcAdvertiserAssistant = MCAdvertiserAssistant(serviceType: "hws-project25", discoveryInfo: nil, session: mcSession)
+        mcAdvertiserAssistant.start()
+    }
+    
+    func joinSession(action: UIAlertAction!) {
+        let mcBrowser = MCBrowserViewController(serviceType: "hws-project25", session: mcSession)
+        mcBrowser.delegate = self
+        presentViewController(mcBrowser, animated: true, completion: nil)
+    }
+    
 }
 
