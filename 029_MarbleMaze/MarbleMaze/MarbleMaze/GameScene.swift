@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 Javan chen. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 
 enum CollisionTypes: UInt32 {
@@ -19,6 +20,7 @@ enum CollisionTypes: UInt32 {
 class GameScene: SKScene {
     var player: SKSpriteNode!
     var lastTouchPosition: CGPoint?
+    var motionManager: CMMotionManager!
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -31,6 +33,10 @@ class GameScene: SKScene {
         
         loadLevel()
         creatPlayer()
+        
+        //Core Motion
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
     }
     
     // use touch to simulation the ipad tilt
