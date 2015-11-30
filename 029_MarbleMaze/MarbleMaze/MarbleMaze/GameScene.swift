@@ -17,10 +17,19 @@ enum CollisionTypes: UInt32 {
     case Finish = 16
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    // game set
     var player: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
+    // controll
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager!
+    
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -29,10 +38,17 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         
+        physicsWorld.contactDelegate = self
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
         loadLevel()
         creatPlayer()
+        
+        scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+        scoreLabel.text = "Score: 0"
+        scoreLabel.horizontalAlignmentMode = .Left
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        addChild(scoreLabel)
         
         //Core Motion
         motionManager = CMMotionManager()
