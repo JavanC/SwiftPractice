@@ -18,7 +18,7 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
-
+        loadLevel()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -33,7 +33,6 @@ class GameScene: SKScene {
         if let levelPath = NSBundle.mainBundle().pathForResource("level1", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath, usedEncoding: nil) {
                 let lines = levelString.componentsSeparatedByString("\n")
-                
                 for (row, line) in lines.reverse().enumerate() {
                     for (column, letter) in line.characters.enumerate() {
                         let position = CGPoint(x: (64 * column) + 32, y: (64 * row) + 32)
@@ -70,7 +69,16 @@ class GameScene: SKScene {
                             node.physicsBody!.collisionBitMask = 0
                             addChild(node)
                         } else if letter == "f" {
+                            let node = SKSpriteNode(imageNamed: "finish")
+                            node.name = "finish"
+                            node.position = position
+                            node.physicsBody = SKPhysicsBody(circleOfRadius: node.size.width / 2)
+                            node.physicsBody!.dynamic = false
                             
+                            node.physicsBody!.categoryBitMask = CollisionTypes.Finish.rawValue
+                            node.physicsBody!.contactTestBitMask = CollisionTypes.Player.rawValue
+                            node.physicsBody!.collisionBitMask = 0
+                            addChild(node)
                         }
                     }
                 }
