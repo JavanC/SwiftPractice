@@ -18,6 +18,12 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
+        let background = SKSpriteNode(imageNamed: "background.jpg")
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .Replace
+        background.zPosition = -1
+        addChild(background)
+        
         loadLevel()
     }
     
