@@ -18,6 +18,7 @@ enum CollisionTypes: UInt32 {
 
 class GameScene: SKScene {
     var player: SKSpriteNode!
+    var lastTouchPosition: CGPoint?
     
     override func didMoveToView(view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -26,18 +27,39 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        
         loadLevel()
         creatPlayer()
     }
     
+    // use touch to simulation the ipad tilt
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
+        if let touch = touches.first {
+            let location = touch.locationInNode(self)
+            lastTouchPosition = location
+        }
     }
-   
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.locationInNode(self)
+            lastTouchPosition = location
+        }
+    }
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        lastTouchPosition = nil
+    }
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        lastTouchPosition = nil
+    }
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if let currentTouch = lastTouchPosition {
+            let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
+            physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
+        }
     }
     
+    // loadLevel function
     func loadLevel() {
         if let levelPath = NSBundle.mainBundle().pathForResource("level1", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath, usedEncoding: nil) {
