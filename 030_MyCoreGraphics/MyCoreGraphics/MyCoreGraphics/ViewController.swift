@@ -42,12 +42,20 @@ class ViewController: UIViewController {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
         let context = UIGraphicsGetCurrentContext()
         
-        // awesome frawing code
+        let rectamgle = CGRect(x: 0, y: 0, width: 512, height: 512)
+        
+        CGContextSetFillColorWithColor(context, UIColor.redColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetLineWidth(context, 10)
+        
+        CGContextAddRect(context, rectamgle)
+        CGContextDrawPath(context, .FillStroke)
         
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         imageView.image = img
     }
+
     
 }
