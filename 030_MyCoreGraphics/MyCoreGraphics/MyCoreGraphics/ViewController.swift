@@ -35,6 +35,9 @@ class ViewController: UIViewController {
         case 4:
             drawLine()
             
+        case 5:
+            drawImagesAndText()
+            
         default: break
         }
     }
@@ -163,6 +166,33 @@ class ViewController: UIViewController {
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+        imageView.image = img
+    }
+    
+    func drawImagesAndText() {
+        // 1. Create a context, but this time we don't need a reference to it.
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 512, height: 512), false, 0)
+        
+        // 2. Define a paragraph style that aligns text to the center.
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .Center
+        
+        // 3. Create an attributes dictionary containing that paragraph style, and also a font.
+        let attrs = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 36)!, NSParagraphStyleAttributeName: paragraphStyle]
+        
+        // 4. Draw a string to the screen using the attributes dictionary.
+        let string: NSString = "The best-laid schemes o'\nmice an' men gang aft agley"
+        string.drawWithRect(CGRect(x: 32, y: 32, width: 448, height: 448), options: .UsesLineFragmentOrigin, attributes: attrs, context: nil)
+        
+        // 5. Load an image from the project and draw it to the context.
+        let mouse = UIImage(named: "mouse")
+        mouse?.drawAtPoint(CGPoint(x: 300, y: 150))
+        
+        // 6. Retrieve a UIImage of the context's data, the end drawing.
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // 7. Update the image view with the finished result.
         imageView.image = img
     }
     
