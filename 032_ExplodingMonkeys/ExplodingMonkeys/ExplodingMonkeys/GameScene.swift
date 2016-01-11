@@ -14,7 +14,7 @@ enum CollisionTypes: UInt32 {
     case Player = 4
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var buildings = [BuildingNode]()
     var player1: SKSpriteNode!
@@ -25,6 +25,7 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         backgroundColor = UIColor(hue: 0.669, saturation: 0.99, brightness: 0.67, alpha: 1)
+        physicsWorld.contactDelegate = self
         
         createBuildings()
         createPlayers()
@@ -72,12 +73,27 @@ class GameScene: SKScene {
         addChild(player2)
     }
     
+    func changePlayer() {
+        if currentPlayer == 1 {
+            currentPlayer = 2
+        } else {
+            currentPlayer = 1
+        }
+        viewController.activatePlayerNumber(currentPlayer)
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        if banana != nil {
+            if banana.position.y < -1000 {
+                banana.removeFromParent()
+                banana = nil
+                changePlayer()
+            }
+        }
     }
     
     func deg2rad(degrees: Int) -> Double {
@@ -134,5 +150,68 @@ class GameScene: SKScene {
             let impluse = CGVector(dx: cos(radians) * -speed, dy: sin(radians) * speed)
             banana.physicsBody?.applyImpulse(impluse)
         }
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if let firstNode = firstBody.node {
+            if let secondNode = secondBody.node {
+                if firstNode.name == "banana" && secondNode.name == "building" {
+                    bananaHitBuilding(secondNode as! BuildingNode, atPoint: contact.contactPoint)
+                }
+                if firstNode.name == "banana" && secondNode.name == "player1" {
+                    destroyPlayer(player1)
+                }
+                if secondNode.name == "banana" && secondNode.name == "player2" {
+                    destroyPlayer(player2)
+                }
+            }
+        }
+    }
+    
+    func destroyPlayer(player: SKSpriteNode) {
+        let explosion = SKEmitterNode(fileNamed: "hitPlayer.sks")!
+        explosion.position = player.position
+        addChild(explosion)
+        
+        player.removeFromParent()
+        banana?.removeFromParent()
+    
+        RunAfterDelay(2) { [unowned self] in
+            let newGame = GameScene(size: self.size)
+            newGame.viewController = self.viewController
+            self.viewController.currentGame = newGame
+            
+            self.changePlayer()
+            newGame.currentPlayer = self.currentPlayer
+            
+            let transition = SKTransition.doorwayWithDuration(1.5)
+            self.view?.presentScene(newGame, transition: transition)
+            
+        }
+    }
+    
+    func bananaHitBuilding(building: BuildingNode, atPoint contactPoint: CGPoint) {
+        let buildingLocation = convertPoint(contactPoint, toNode: building)
+        building.hitAtPoint(buildingLocation)
+        let explosion = SKEmitterNode(fileNamed: "hitBuilding.sks")!
+        explosion.position = contactPoint
+        addChild(explosion)
+        
+        banana.name = ""
+        banana.removeFromParent()
+        banana = nil
+        
+        changePlayer()
     }
 }
