@@ -27,6 +27,7 @@
 		AE3ED98B1DB087CD00945DC1 /* FlightInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */; };
 		AE5754C01DB5BDF500251086 /* ScheduleInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */; };
 		AE5754C21DB5C13F00251086 /* FlightRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5754C11DB5C13F00251086 /* FlightRowController.swift */; };
+		AE5754C41DB5F80600251086 /* CheckInInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5754C31DB5F80600251086 /* CheckInInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightInterfaceController.swift; sourceTree = "<group>"; };
 		AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleInterfaceController.swift; sourceTree = "<group>"; };
 		AE5754C11DB5C13F00251086 /* FlightRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightRowController.swift; sourceTree = "<group>"; };
+		AE5754C31DB5F80600251086 /* CheckInInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				AE3ED9791DB0810F00945DC1 /* ExtensionDelegate.swift */,
+				AE5754C31DB5F80600251086 /* CheckInInterfaceController.swift */,
 				AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */,
 				AE5754C11DB5C13F00251086 /* FlightRowController.swift */,
 				AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE5754C41DB5F80600251086 /* CheckInInterfaceController.swift in Sources */,
 				AE3ED97A1DB0810F00945DC1 /* ExtensionDelegate.swift in Sources */,
 				AE3ED98B1DB087CD00945DC1 /* FlightInterfaceController.swift in Sources */,
 				AE5754C01DB5BDF500251086 /* ScheduleInterfaceController.swift in Sources */,
