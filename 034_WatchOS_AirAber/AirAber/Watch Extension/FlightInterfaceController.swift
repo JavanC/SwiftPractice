@@ -22,8 +22,9 @@ class FlightInterfaceController: WKInterfaceController {
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
-    
-    flight = Flight.allFlights().first
+    if let flight = context as? Flight {
+      self.flight = flight
+    }
   }
   
   var flight: Flight? {
@@ -32,7 +33,7 @@ class FlightInterfaceController: WKInterfaceController {
       flightLabel.setText("Flight \(flight.shortNumber)")
       routeLabel.setText(flight.route)
       boardingLabel.setText("\(flight.number) Boards")
-      boardingLabel.setText(flight.boardsAt)
+      boardTimeLabel.setText(flight.boardsAt)
       if flight.onSchedule {
         statusLabel.setText("On Time")
       } else {

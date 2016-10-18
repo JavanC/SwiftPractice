@@ -26,6 +26,7 @@
 		AE3ED9891DB082CA00945DC1 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FA27F1B724A9900B1E765 /* Flight.swift */; };
 		AE3ED98B1DB087CD00945DC1 /* FlightInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */; };
 		AE5754C01DB5BDF500251086 /* ScheduleInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */; };
+		AE5754C21DB5C13F00251086 /* FlightRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5754C11DB5C13F00251086 /* FlightRowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		AE3ED97D1DB0810F00945DC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightInterfaceController.swift; sourceTree = "<group>"; };
 		AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleInterfaceController.swift; sourceTree = "<group>"; };
+		AE5754C11DB5C13F00251086 /* FlightRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightRowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				AE3ED9791DB0810F00945DC1 /* ExtensionDelegate.swift */,
 				AE3ED98A1DB087CD00945DC1 /* FlightInterfaceController.swift */,
+				AE5754C11DB5C13F00251086 /* FlightRowController.swift */,
 				AE5754BF1DB5BDF500251086 /* ScheduleInterfaceController.swift */,
 				AE3ED97B1DB0810F00945DC1 /* Assets.xcassets */,
 				AE3ED97D1DB0810F00945DC1 /* Info.plist */,
@@ -349,6 +352,7 @@
 				AE3ED97A1DB0810F00945DC1 /* ExtensionDelegate.swift in Sources */,
 				AE3ED98B1DB087CD00945DC1 /* FlightInterfaceController.swift in Sources */,
 				AE5754C01DB5BDF500251086 /* ScheduleInterfaceController.swift in Sources */,
+				AE5754C21DB5C13F00251086 /* FlightRowController.swift in Sources */,
 				AE3ED9891DB082CA00945DC1 /* Flight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

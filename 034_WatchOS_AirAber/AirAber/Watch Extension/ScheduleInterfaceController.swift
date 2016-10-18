@@ -16,8 +16,12 @@ class ScheduleInterfaceController: WKInterfaceController {
     var flights = Flight.allFlights()
   
     override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        flightsTable.setNumberOfRows(flights.count, withRowType: "FlightRow")
+      super.awake(withContext: context)
+      flightsTable.setNumberOfRows(flights.count, withRowType: "FlightRow")
+      for index in 0..<flightsTable.numberOfRows {
+        guard let controller = flightsTable.rowController(at: index) as? FlightRowController else { continue }
+        controller.flight = flights[index]
+      }
     }
 
     override func willActivate() {
@@ -29,5 +33,10 @@ class ScheduleInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+  
+  override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+    let flight = flights[rowIndex]
+    presentController(withName: "Flight", context: flight)
+  }
 
 }
