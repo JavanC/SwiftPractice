@@ -14,13 +14,14 @@ class GameViewController: UIViewController {
     var scnScene: SCNScene!
     var cameraNode: SCNNode!
     var spawnTime: TimeInterval = 0
+    var game = GameHelper.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupScene()
         setupCamera()
-//        spawnShape()
+        setupHUD()
     }
     
     override var shouldAutorotate: Bool {
@@ -35,7 +36,7 @@ class GameViewController: UIViewController {
         scnView = self.view as! SCNView
         
         scnView.showsStatistics = true
-        scnView.allowsCameraControl = true
+        scnView.allowsCameraControl = false
         scnView.autoenablesDefaultLighting = true
         
         scnView.delegate = self
@@ -96,6 +97,12 @@ class GameViewController: UIViewController {
         
         let trailEmitter = creatTrail(color: color, geometry: geometry)
         geometryNode.addParticleSystem(trailEmitter)
+        
+        if color == UIColor.black {
+            geometryNode.name = "BAD"
+        } else {
+            geometryNode.name = "GOOD"
+        }
     
         scnScene.rootNode.addChildNode(geometryNode)
     }
@@ -114,6 +121,32 @@ class GameViewController: UIViewController {
         trail.emitterShape = geometry
         return trail
     }
+    
+    func setupHUD() {
+        game.hudNode.position = SCNVector3Make(0, 10, 0)
+        scnScene.rootNode.addChildNode(game.hudNode)
+    }
+    
+    func handleTouchFor(node: SCNNode) {
+        if node.name == "GOOD" {
+            game.score += 1
+            node.removeFromParentNode()
+            game.shakeNode(cameraNode)
+        } else if node.name == "BAD" {
+            game.lives -= 1
+            node.removeFromParentNode()
+            game.shakeNode(cameraNode)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: scnView)
+        let hitResults = scnView.hitTest(location, options: nil)
+        if let result = hitResults.first {
+            handleTouchFor(node: result.node)
+        }
+    }
 }
 
 extension GameViewController: SCNSceneRendererDelegate {
@@ -123,5 +156,6 @@ extension GameViewController: SCNSceneRendererDelegate {
             spawnTime = time + TimeInterval(Float.random(min: 0.2, max: 1.5))
         }
         cleanScene()
+        game.updateHUD()
     }
 }
