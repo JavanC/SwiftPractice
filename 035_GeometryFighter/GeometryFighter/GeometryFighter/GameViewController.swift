@@ -78,7 +78,8 @@ class GameViewController: UIViewController {
             geometry = SCNTube(innerRadius: 0.25, outerRadius: 0.5, height: 1.0)
         }
         
-        geometry.materials.first?.diffuse.contents = UIColor.random()
+        let color = UIColor.random()
+        geometry.materials.first?.diffuse.contents = color
         
         let geometryNode = SCNNode(geometry: geometry)
         
@@ -92,6 +93,9 @@ class GameViewController: UIViewController {
         let position = SCNVector3Make(0.05, 0.05, 0.05)
         
         geometryNode.physicsBody?.applyForce(force, at: position, asImpulse: true)
+        
+        let trailEmitter = creatTrail(color: color, geometry: geometry)
+        geometryNode.addParticleSystem(trailEmitter)
     
         scnScene.rootNode.addChildNode(geometryNode)
     }
@@ -102,6 +106,13 @@ class GameViewController: UIViewController {
                 node.removeFromParentNode()
             }
         }
+    }
+    
+    func creatTrail(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+        let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
+        trail.particleColor = color
+        trail.emitterShape = geometry
+        return trail
     }
 }
 
