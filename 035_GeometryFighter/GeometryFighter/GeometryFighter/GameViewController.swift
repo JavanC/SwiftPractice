@@ -40,7 +40,6 @@ class GameViewController: UIViewController {
         scnView.autoenablesDefaultLighting = true
         
         scnView.delegate = self
-        
         scnView.isPlaying = true
     }
     
