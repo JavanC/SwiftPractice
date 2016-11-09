@@ -48,24 +48,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startRangingBeaconsInRegion(beaconRegion)
     }
     
-    func updateDistance(distance: CLProximity) {
+    func updateDistance(distance: CLProximity, mm: Double) {
         UIView.animateWithDuration(0.8) { [unowned self] in
             switch distance {
             case .Unknown:
                 self.view.backgroundColor = UIColor.grayColor()
-                self.distanceReading.text = "UNKNOWN"
+                self.distanceReading.text = String(format:"%.2f", mm)
+                
+//                self.distanceReading.text = "UNKNOWN\n\(mm)"
                 
             case .Far:
                 self.view.backgroundColor = UIColor.blueColor()
-                self.distanceReading.text = "FAR"
+                self.distanceReading.text = String(format:"%.2f", mm)
+//                self.distanceReading.text = "FAR\n\(mm)"
                 
             case .Near:
                 self.view.backgroundColor = UIColor.orangeColor()
-                self.distanceReading.text = "NEAR"
+                self.distanceReading.text = String(format:"%.2f", mm)
+//                self.distanceReading.text = "NEAR\n\(mm)"
                 
             case .Immediate:
                 self.view.backgroundColor = UIColor.redColor()
-                self.distanceReading.text = "RIGHT HERE"
+                self.distanceReading.text = String(format:"%.2f", mm)
+//                self.distanceReading.text = "RIGHT HERE\n\(mm)"
             }
         }
     }
@@ -73,9 +78,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         if beacons.count > 0 {
             let beacon = beacons[0]
-            updateDistance(beacon.proximity)
+            print(beacon)
+            
+            updateDistance(beacon.proximity, mm: Double(beacon.rssi))
         } else {
-            updateDistance(.Unknown)
+            updateDistance(.Unknown, mm: 0)
         }
     }
 }
