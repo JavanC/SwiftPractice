@@ -42,6 +42,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func startScanning() {
         let uuid = NSUUID(UUIDString: "74278BDA-B644-4520-8F0C-720EAF059935")!
         let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
+        beaconRegion.notifyOnExit = true
+        beaconRegion.notifyOnEntry = true
 //        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, major: 123, minor: 456, identifier: "MyBeacon")
         
         locationManager.startMonitoringForRegion(beaconRegion)
@@ -78,7 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         if beacons.count > 0 {
             let beacon = beacons[0]
-            print(beacon)
+//            print(beacon)
             
             updateDistance(beacon.proximity, mm: Double(beacon.rssi))
         } else {
