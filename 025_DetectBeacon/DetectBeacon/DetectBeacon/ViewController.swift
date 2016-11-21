@@ -57,22 +57,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.view.backgroundColor = UIColor.grayColor()
                 self.distanceReading.text = String(format:"%.2f", mm)
                 
-//                self.distanceReading.text = "UNKNOWN\n\(mm)"
-                
             case .Far:
                 self.view.backgroundColor = UIColor.blueColor()
                 self.distanceReading.text = String(format:"%.2f", mm)
-//                self.distanceReading.text = "FAR\n\(mm)"
-                
+
             case .Near:
                 self.view.backgroundColor = UIColor.orangeColor()
                 self.distanceReading.text = String(format:"%.2f", mm)
-//                self.distanceReading.text = "NEAR\n\(mm)"
                 
             case .Immediate:
                 self.view.backgroundColor = UIColor.redColor()
                 self.distanceReading.text = String(format:"%.2f", mm)
-//                self.distanceReading.text = "RIGHT HERE\n\(mm)"
             }
         }
     }
@@ -80,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
         if beacons.count > 0 {
             let beacon = beacons[0]
-//            print(beacon)
+            print(beacon.accuracy)
             
             updateDistance(beacon.proximity, mm: Double(beacon.rssi))
         } else {
