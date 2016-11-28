@@ -10,18 +10,41 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     var locationManager: CLLocationManager!
+    var updateTimer: NSTimer?
     
     @IBOutlet weak var distanceReading: UILabel!
-
+    
+    
+    @IBAction func didTapPlayPause(sender: UIButton) {
+        sender.selected = !sender.selected
+        if sender.selected {
+            updateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
+            // register background task
+//            registerBackgroundTask()
+        } else {
+            updateTimer?.invalidate()
+            updateTimer = nil
+            // end background task
+//            if backgroundTask != UIBackgroundTaskInvalid {
+//                endBackgroundTask()
+//            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
         view.backgroundColor = UIColor.grayColor()
+    }
+    
+    func doSomething() {
+        print("Hi!")
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,5 +105,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             updateDistance(.Unknown, mm: 0)
         }
     }
+    
+//    func registerBackgroundTask() {
+//        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+//            self?.endBackgroundTask()
+//        }
+//        assert(backgroundTask != UIBackgroundTaskInvalid)
+//    }
+//    
+//    func endBackgroundTask() {
+//        print("Background task ended.")
+//        UIApplication.shared.endBackgroundTask(backgroundTask)
+//        backgroundTask = UIBackgroundTaskInvalid
+//    }
 }
 
