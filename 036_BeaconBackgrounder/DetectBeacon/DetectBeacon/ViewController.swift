@@ -11,15 +11,9 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
-    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     var locationManager: CLLocationManager!
     var updateTimer: Timer?
     var current: Int = 0
-    
-    deinit {
-        print("deinit app")
-        NotificationCenter.default.removeObserver(self)
-    }
     
     @IBOutlet weak var distanceReading: UILabel!
     
@@ -28,28 +22,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
             updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
-            // register background task
-            registerBackgroundTask()
         } else {
             updateTimer?.invalidate()
             updateTimer = nil
-            // end background task
-            if backgroundTask != UIBackgroundTaskInvalid {
-                endBackgroundTask()
-            }
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        NotificationCenter.default.addObserver(self, selector: #selector(reinstateBackgroundTask), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
         view.backgroundColor = UIColor.gray
-        
     }
     
     func doSomething() {
@@ -90,19 +75,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             switch distance {
             case .unknown:
                 self.view.backgroundColor = UIColor.gray
-//                self.distanceReading.text = String(format:"%.2f", mm)
+                self.distanceReading.text = String(format:"%.2f", mm)
                 
             case .far:
                 self.view.backgroundColor = UIColor.blue
-//                self.distanceReading.text = String(format:"%.2f", mm)
+                self.distanceReading.text = String(format:"%.2f", mm)
 
             case .near:
                 self.view.backgroundColor = UIColor.orange
-//                self.distanceReading.text = String(format:"%.2f", mm)
+                self.distanceReading.text = String(format:"%.2f", mm)
                 
             case .immediate:
                 self.view.backgroundColor = UIColor.red
-//                self.distanceReading.text = String(format:"%.2f", mm)
+                self.distanceReading.text = String(format:"%.2f", mm)
             }
         }) 
     }
@@ -111,32 +96,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         if beacons.count > 0 {
             let beacon = beacons[0]
             print(beacon.accuracy)
-            
+            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
             updateDistance(beacon.proximity, mm: Double(beacon.rssi))
         } else {
             updateDistance(.unknown, mm: 0)
         }
-    }
-    
-    func reinstateBackgroundTask() {
-        print("Background task reinstate.")
-        if updateTimer != nil && (backgroundTask == UIBackgroundTaskInvalid) {
-            registerBackgroundTask()
-        }
-    }
-    
-    func registerBackgroundTask() {
-        print("Background task register.")
-        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-            self?.endBackgroundTask()
-        }
-        assert(backgroundTask != UIBackgroundTaskInvalid)
-    }
-    
-    func endBackgroundTask() {
-        print("Background task ended.")
-        UIApplication.shared.endBackgroundTask(backgroundTask)
-        backgroundTask = UIBackgroundTaskInvalid
     }
 }
 

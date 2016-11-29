@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let locationManager = CLLocationManager()
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -60,6 +61,9 @@ extension AppDelegate: CLLocationManagerDelegate {
             notification.alertBody = "Exit region"
             notification.soundName = "Default"
             UIApplication.shared.presentLocalNotificationNow(notification)
+            
+            reinstateBackgroundTask()
+            print("register bg task")
         }
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
@@ -70,7 +74,29 @@ extension AppDelegate: CLLocationManagerDelegate {
             notification.alertBody = "Enter region"
             notification.soundName = "Default"
             UIApplication.shared.presentLocalNotificationNow(notification)
+        
+            reinstateBackgroundTask()
+            print("register bg task")
         }
+    }
+    
+    func reinstateBackgroundTask() {
+        print("Background task reinstate.")
+        if backgroundTask == UIBackgroundTaskInvalid {
+            registerBackgroundTask()
+        }
+    }
+    func registerBackgroundTask() {
+        print("Background task register.")
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != UIBackgroundTaskInvalid)
+    }
+    func endBackgroundTask() {
+        print("Background task ended.")
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskInvalid
     }
 }
 
