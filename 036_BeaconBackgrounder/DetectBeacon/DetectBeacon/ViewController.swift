@@ -15,8 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var updateTimer: Timer?
     var current: Int = 0
     
-    @IBOutlet weak var distanceReading: UILabel!
-    
+    var viewA: BeaconView!
+    var viewB: BeaconView!
     
     @IBAction func didTapPlayPause(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -35,12 +35,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         
         view.backgroundColor = UIColor.gray
+        
+        let viewHeight = UIScreen.main.bounds.height / 4
+        let viewWidth = UIScreen.main.bounds.width
+        
+        viewA = BeaconView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight), name: "A")
+        self.view.addSubview(viewA)
+        
     }
     
     func doSomething() {
         current += 1
         print("Hi! \(current)")
-        distanceReading.text = "\(current)"
+//        distanceReading.text = "\(current)"
         print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
     }
 
@@ -70,36 +77,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startRangingBeacons(in: beaconRegion)
     }
     
-    func updateDistance(_ distance: CLProximity, mm: Double) {
-        UIView.animate(withDuration: 0.8, animations: { [unowned self] in
-            switch distance {
-            case .unknown:
-                self.view.backgroundColor = UIColor.gray
-                self.distanceReading.text = String(format:"%.2f", mm)
-                
-            case .far:
-                self.view.backgroundColor = UIColor.blue
-                self.distanceReading.text = String(format:"%.2f", mm)
-
-            case .near:
-                self.view.backgroundColor = UIColor.orange
-                self.distanceReading.text = String(format:"%.2f", mm)
-                
-            case .immediate:
-                self.view.backgroundColor = UIColor.red
-                self.distanceReading.text = String(format:"%.2f", mm)
-            }
-        }) 
-    }
-    
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if beacons.count > 0 {
             let beacon = beacons[0]
             print(beacon.accuracy)
+            print(beacon.proximityUUID)
             print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-            updateDistance(beacon.proximity, mm: Double(beacon.rssi))
+            viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
         } else {
-            updateDistance(.unknown, mm: 0)
+//            updateDistance(.unknown, mm: 0)
         }
     }
 }
