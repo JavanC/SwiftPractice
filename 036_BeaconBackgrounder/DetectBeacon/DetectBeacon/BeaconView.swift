@@ -50,7 +50,7 @@ class BeaconView : UIView {
         switch proximity {
         case .unknown:
             proximityLabel.text = "UNKNOWN"
-            self.backgroundColor = UIColor.gray
+            self.backgroundColor = UIColor.white
         case .far:
             proximityLabel.text = "FAR"
             self.backgroundColor = UIColor.blue

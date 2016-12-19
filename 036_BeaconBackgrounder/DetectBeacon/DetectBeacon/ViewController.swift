@@ -17,6 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var viewA: BeaconView!
     var viewB: BeaconView!
+    var viewC: BeaconView!
     
     @IBAction func didTapPlayPause(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
@@ -41,6 +42,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         viewA = BeaconView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight), name: "A")
         self.view.addSubview(viewA)
+        viewB = BeaconView(frame: CGRect(x: 0, y: viewHeight, width: viewWidth, height: viewHeight), name: "B")
+        self.view.addSubview(viewB)
+        viewC = BeaconView(frame: CGRect(x: 0, y: viewHeight * 2, width: viewWidth, height: viewHeight), name: "C")
+        self.view.addSubview(viewC)
         
     }
     
@@ -49,11 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("Hi! \(current)")
 //        distanceReading.text = "\(current)"
         print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -78,14 +78,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        if beacons.count > 0 {
-            let beacon = beacons[0]
-            print(beacon.accuracy)
-            print(beacon.proximityUUID)
-            print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-            viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
-        } else {
-//            updateDistance(.unknown, mm: 0)
+        
+        for beacon in beacons {
+            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
+//                print(beacon.accuracy)
+//                print(beacon.proximityUUID)
+                print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+                viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
+            }
         }
     }
 }
