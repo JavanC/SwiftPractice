@@ -11,6 +11,7 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var locationTextView: UITextView!
     var locationManager: CLLocationManager!
     var updateTimer: Timer?
     var current: Int = 0
@@ -18,22 +19,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var viewA: BeaconView!
     var viewB: BeaconView!
     var viewC: BeaconView!
+    var areaCoordinate: AreaCoordinate!
     
-    @IBAction func didTapPlayPause(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
-        } else {
-            updateTimer?.invalidate()
-            updateTimer = nil
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
+        
+        if updateTimer == nil {
+            updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
+        }
         
         view.backgroundColor = UIColor.gray
         
@@ -46,6 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(viewB)
         viewC = BeaconView(frame: CGRect(x: 0, y: viewHeight * 2, width: viewWidth, height: viewHeight), name: "C")
         self.view.addSubview(viewC)
+        areaCoordinate = AreaCoordinate()
         
     }
     
@@ -55,7 +53,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //        distanceReading.text = "\(current)"
         print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
     }
-
+    
+    func printLocation(areaCoordinate: [CLBeacon]) {
+        
+//        var nowAreaCoordinateUUIDs = [UUID]()
+//        for beacon in nowAreaCoordinate {
+//            nowAreaCoordinateUUIDs.append(beacon.proximityUUID)
+//        }
+//        print("now UUIDs list: " + String(describing: nowAreaCoordinateUUIDs))
+        
+//        var needUpdateNowAreaCoordinate = false
+        
+        // check is same area
+//        for beacon in areaCoordinate {
+            // have same beacon
+//            if nowAreaCoordinateUUIDs.contains(beacon.proximityUUID) {
+                // in same proximity
+//                print("have same uuid")
+//            } else {
+//                print("have no same uuid")
+//                needUpdateNowAreaCoordinate = true
+//            }
+//        }
+        
+//        if needUpdateNowAreaCoordinate {
+            // update
+//            nowAreaCoordinate = areaCoordinate
+//        }
+        
+        
+//        locationTextView.text.append("A : " +   + "\n")
+    }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
@@ -79,14 +108,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
+        var newBeacons = [CLBeacon]()
         for beacon in beacons {
             if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
-//                print(beacon.accuracy)
-//                print(beacon.proximityUUID)
-                print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-                viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
+                switch beacon.minor {
+                case 0xFFE1:
+                    viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
+                    newBeacons.append(beacon)
+                case 0xFFE2:
+                    viewB.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
+                    newBeacons.append(beacon)
+                default:
+                    break
+                }
             }
         }
+        
+        print("----------")
+        print(current)
+        print("new beacons : " + String(describing: newBeacons))
+        print(areaCoordinate.checkIsSameCoordinate(newBeacons: newBeacons))
+        areaCoordinate.updateAreaCoordinate(beacons: newBeacons)
+        print(areaCoordinate.checkIsSameCoordinate(newBeacons: newBeacons))
+        print("----------")
     }
 }
 
