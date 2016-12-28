@@ -12,7 +12,7 @@
 		65E3B1E91BFF190F00E95A61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1E71BFF190F00E95A61 /* Main.storyboard */; };
 		65E3B1EB1BFF190F00E95A61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */; };
 		65E3B1EE1BFF190F00E95A61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */; };
-		AE15AF2B1E1258420038DA2D /* AreaCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15AF2A1E1258420038DA2D /* AreaCoordinate.swift */; };
+		AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15AF2A1E1258420038DA2D /* BeaconArea.swift */; };
 		AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9C8C041E00F2A30079D7CF /* BeaconView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +24,7 @@
 		65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65E3B1ED1BFF190F00E95A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E3B1EF1BFF190F00E95A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE15AF2A1E1258420038DA2D /* AreaCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaCoordinate.swift; sourceTree = "<group>"; };
+		AE15AF2A1E1258420038DA2D /* BeaconArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconArea.swift; sourceTree = "<group>"; };
 		AE9C8C041E00F2A30079D7CF /* BeaconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,11 +61,11 @@
 				65E3B1E31BFF190F00E95A61 /* AppDelegate.swift */,
 				65E3B1E51BFF190F00E95A61 /* ViewController.swift */,
 				AE9C8C041E00F2A30079D7CF /* BeaconView.swift */,
+				AE15AF2A1E1258420038DA2D /* BeaconArea.swift */,
 				65E3B1E71BFF190F00E95A61 /* Main.storyboard */,
 				65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */,
 				65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */,
 				65E3B1EF1BFF190F00E95A61 /* Info.plist */,
-				AE15AF2A1E1258420038DA2D /* AreaCoordinate.swift */,
 			);
 			path = DetectBeacon;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE15AF2B1E1258420038DA2D /* AreaCoordinate.swift in Sources */,
+				AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */,
 				AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */,
 				65E3B1E61BFF190F00E95A61 /* ViewController.swift in Sources */,
 				65E3B1E41BFF190F00E95A61 /* AppDelegate.swift in Sources */,

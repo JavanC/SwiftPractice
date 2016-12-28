@@ -103,3 +103,9 @@ extension AppDelegate: CLLocationManagerDelegate {
     }
 }
 
+extension CLBeacon {
+    func id() -> String {
+        return String(describing: self.major) + String(describing: self.minor)
+    }
+}
+
