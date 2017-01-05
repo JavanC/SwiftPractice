@@ -19,6 +19,7 @@
 		AE9B60B51E1CE9F700D3F473 /* CharacteristicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9B60B31E1CE9F700D3F473 /* CharacteristicCell.swift */; };
 		AE9B60B61E1CE9F700D3F473 /* CharacteristicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9B60B41E1CE9F700D3F473 /* CharacteristicCell.xib */; };
 		AEC7F5DF1E1CF4F000F685F7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7F5DE1E1CF4F000F685F7 /* Extensions.swift */; };
+		AEC7F5E11E1CFE5300F685F7 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7F5E01E1CFE5300F685F7 /* ViewController3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AE9B60B31E1CE9F700D3F473 /* CharacteristicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacteristicCell.swift; sourceTree = "<group>"; };
 		AE9B60B41E1CE9F700D3F473 /* CharacteristicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacteristicCell.xib; sourceTree = "<group>"; };
 		AEC7F5DE1E1CF4F000F685F7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AEC7F5E01E1CFE5300F685F7 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				AE9B60971E1C88E100D3F473 /* ViewController1.swift */,
 				AE9B60AD1E1CDFB000D3F473 /* ViewController2.swift */,
+				AEC7F5E01E1CFE5300F685F7 /* ViewController3.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				AE9B60981E1C88E100D3F473 /* ViewController1.swift in Sources */,
 				AE9B60AE1E1CDFB000D3F473 /* ViewController2.swift in Sources */,
 				AE9B60AB1E1C8A3300D3F473 /* PeripheralCell.swift in Sources */,
+				AEC7F5E11E1CFE5300F685F7 /* ViewController3.swift in Sources */,
 				AE9B60961E1C88E100D3F473 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

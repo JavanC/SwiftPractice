@@ -13,6 +13,7 @@ class ViewController1: UITableViewController, CBCentralManagerDelegate {
 
     var btCentralManager: CBCentralManager!
     var btPeripherals: [CBPeripheral] = []      // 儲存掃描到的 peripheral 物件
+    var selectedPeripheral: CBPeripheral?       // 儲存連線的 peripheral 物件
     var btIsConnectables: [NSNumber] = []       // 儲存各個藍牙裝置是否可以連線
     var btRSSIs: [NSNumber] = []                // 儲存各個藍牙裝置的訊號強度
     @IBOutlet weak var bbRefresh: UIBarButtonItem!
@@ -35,6 +36,13 @@ class ViewController1: UITableViewController, CBCentralManagerDelegate {
         print("reload table view")
     }
   
+    override func viewWillAppear(_ animated: Bool) {
+        btCentralManager.delegate = self
+        if selectedPeripheral != nil {          // 取消連線
+            btCentralManager.cancelPeripheralConnection(selectedPeripheral!)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         btCentralManager = CBCentralManager(delegate: self, queue: nil)
@@ -83,6 +91,7 @@ extension ViewController1 {
         let targetVC = segue.destination as! ViewController2
         targetVC.centralManager = self.btCentralManager
         targetVC.peripheral = sender as! CBPeripheral
+        selectedPeripheral = sender as? CBPeripheral
         targetVC.title = (sender as! CBPeripheral).name
     }
 }
