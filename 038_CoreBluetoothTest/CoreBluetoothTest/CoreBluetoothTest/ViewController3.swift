@@ -21,14 +21,37 @@ class ViewController3: UIViewController, CBPeripheralDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lbUUID.text = char.uuid.uuidString
+        lbProp.text = char.getPropertyContent()
+        lbPropHex.text = String(format: "0x%02X", char.properties.rawValue)
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        peripheral.delegate = self
+        if !char.isReadable() {
+            btRead.isEnabled = false
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func actionRead(_ sender: UIButton) {
+        peripheral.readValue(for: char)
+    }
     
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        
+//        print(peripheral.readValue(for: char))
+        
+//        
+//        print(characteristic)
+//        if let value = characteristic.value {
+//            let log = "read: \((value as NSData).getByteArray()!)"
+//            tvResponse.text = log + "\n\n" + self.tvResponse.text
+//        }
+    }
 }
