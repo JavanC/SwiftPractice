@@ -105,7 +105,17 @@ extension AppDelegate: CLLocationManagerDelegate {
 
 extension CLBeacon {
     func id() -> String {
-        return String(describing: self.major) + String(describing: self.minor)
+//        return String(describing: self.major) + String(describing: self.minor)
+        
+        
+        if self.minor == 0xFFE1 {
+            return "A"
+        } else if self.minor == 0x5566 {
+            return "B"
+        } else if self.minor == 0x5577 {
+            return "C"
+        } else {
+            return String(describing: self.minor)
+        }
     }
 }
-

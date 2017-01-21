@@ -17,8 +17,9 @@ class ViewController3: UIViewController, CBPeripheralDelegate {
     @IBOutlet weak var lbPropHex: UILabel!
     @IBOutlet weak var lbProp: UILabel!
     @IBOutlet weak var btRead: UIButton!
+    @IBOutlet weak var btWrite: UIButton!
     @IBOutlet weak var tvResponse: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         lbUUID.text = char.uuid.uuidString
@@ -42,16 +43,22 @@ class ViewController3: UIViewController, CBPeripheralDelegate {
     @IBAction func actionRead(_ sender: UIButton) {
         peripheral.readValue(for: char)
     }
-    
+    @IBAction func onAction(_ sender: Any) {
+        let rawArray:[UInt8] = [0xEF];
+        let data = Data(bytes: rawArray)
+        peripheral.writeValue(data, for: char, type: .withResponse)
+    }
+    @IBAction func offAction(_ sender: Any) {
+        let rawArray:[UInt8] = [0xEE];
+        let data = Data(bytes: rawArray)
+        peripheral.writeValue(data, for: char, type: .withResponse)
+    }
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        
-//        print(peripheral.readValue(for: char))
-        
-//        
-//        print(characteristic)
-//        if let value = characteristic.value {
-//            let log = "read: \((value as NSData).getByteArray()!)"
-//            tvResponse.text = log + "\n\n" + self.tvResponse.text
-//        }
+    
+        print(characteristic)
+        if let value = characteristic.value {
+            let log = "read: \((value as NSData).getByteArray()!)"
+            tvResponse.text = log + "\n\n" + self.tvResponse.text
+        }
     }
 }

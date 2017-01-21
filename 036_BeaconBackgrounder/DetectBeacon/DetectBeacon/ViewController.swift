@@ -64,8 +64,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func startScanning() {
-        let uuid = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
-        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
+//        let uuid = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
+        let uuid = UUID(uuidString: "AABBFFCC-5566-48D2-B060-D0F5A71096E0")!
+//        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "iBeacon")
         beaconRegion.notifyOnExit = true
         beaconRegion.notifyOnEntry = true
         
@@ -77,13 +79,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         var newBeacons = [CLBeacon]()
         for beacon in beacons {
-            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
+//            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
+            if beacon.proximityUUID == UUID(uuidString: "AABBFFCC-5566-48D2-B060-D0F5A71096E0") {
                 switch beacon.minor {
                 case 0xFFE1:
                     viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
                     newBeacons.append(beacon)
-                case 0xFFE2:
+                case 0x5566:
                     viewB.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
+                    newBeacons.append(beacon)
+                case 0x5577:
+                    viewC.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
                     newBeacons.append(beacon)
                 default:
                     break

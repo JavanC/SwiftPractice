@@ -103,6 +103,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5aN-ZN-7QW">
+                                <rect key="frame" x="16" y="498" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="a20-tl-mqn"/>
+                                    <constraint firstAttribute="width" constant="37" id="pPs-Iy-QO7"/>
+                                </constraints>
+                                <state key="normal" title="On"/>
+                                <connections>
+                                    <action selector="onAction:" destination="USA-hx-vsc" eventType="touchUpInside" id="840-Mc-Slh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-yt-7B7">
+                                <rect key="frame" x="74" y="498" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fh6-3F-KtY"/>
+                                    <constraint firstAttribute="width" constant="37" id="o5I-fj-hj8"/>
+                                </constraints>
+                                <state key="normal" title="Off"/>
+                                <connections>
+                                    <action selector="offAction:" destination="USA-hx-vsc" eventType="touchUpInside" id="4cb-KV-agm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -110,17 +132,22 @@
                             <constraint firstItem="XwS-Jo-mQW" firstAttribute="top" secondItem="0lb-aB-8RQ" secondAttribute="bottom" constant="8" id="8hI-Vq-6ol"/>
                             <constraint firstItem="mVc-G8-c6Q" firstAttribute="top" secondItem="XwS-Jo-mQW" secondAttribute="bottom" constant="8" id="A49-g1-opg"/>
                             <constraint firstItem="bZB-4t-2eq" firstAttribute="leading" secondItem="o1Q-CU-cjm" secondAttribute="leadingMargin" id="GWB-lQ-duv"/>
+                            <constraint firstItem="5aN-ZN-7QW" firstAttribute="leading" secondItem="o1Q-CU-cjm" secondAttribute="leadingMargin" id="IBm-V8-2ll"/>
                             <constraint firstItem="bZB-4t-2eq" firstAttribute="trailing" secondItem="o1Q-CU-cjm" secondAttribute="trailingMargin" id="IhX-aH-cKQ"/>
                             <constraint firstItem="0lb-aB-8RQ" firstAttribute="leading" secondItem="o1Q-CU-cjm" secondAttribute="leadingMargin" id="Jay-Ss-xDU"/>
                             <constraint firstItem="bZB-4t-2eq" firstAttribute="top" secondItem="OwE-of-Cex" secondAttribute="bottom" constant="8" id="Qa4-xc-LGu"/>
                             <constraint firstItem="OwE-of-Cex" firstAttribute="leading" secondItem="o1Q-CU-cjm" secondAttribute="leadingMargin" id="R7z-c3-Pvz"/>
+                            <constraint firstItem="FU4-yt-7B7" firstAttribute="top" secondItem="bZB-4t-2eq" secondAttribute="bottom" constant="24" id="kcn-0o-JjK"/>
                             <constraint firstItem="OwE-of-Cex" firstAttribute="top" secondItem="mVc-G8-c6Q" secondAttribute="bottom" constant="8" id="n2a-iS-FmG"/>
+                            <constraint firstItem="5aN-ZN-7QW" firstAttribute="top" secondItem="bZB-4t-2eq" secondAttribute="bottom" constant="24" id="nRh-Wz-ckD"/>
+                            <constraint firstItem="FU4-yt-7B7" firstAttribute="leading" secondItem="5aN-ZN-7QW" secondAttribute="trailing" constant="21" id="nhW-Vo-Zf5"/>
                             <constraint firstItem="0lb-aB-8RQ" firstAttribute="top" secondItem="zZp-7T-yKO" secondAttribute="bottom" constant="8" id="qSV-we-U7a"/>
                             <constraint firstItem="XwS-Jo-mQW" firstAttribute="leading" secondItem="o1Q-CU-cjm" secondAttribute="leadingMargin" id="znW-2j-gSJ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btRead" destination="OwE-of-Cex" id="uhQ-cl-1Bq"/>
+                        <outlet property="btWrite" destination="5aN-ZN-7QW" id="ihf-0h-Oft"/>
                         <outlet property="lbProp" destination="mVc-G8-c6Q" id="tOG-Uw-h0e"/>
                         <outlet property="lbPropHex" destination="XwS-Jo-mQW" id="9pD-gi-zjY"/>
                         <outlet property="lbUUID" destination="0lb-aB-8RQ" id="zlA-Z0-yZU"/>
