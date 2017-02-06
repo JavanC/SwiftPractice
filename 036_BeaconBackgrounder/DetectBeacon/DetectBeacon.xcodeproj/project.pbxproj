@@ -13,10 +13,12 @@
 		65E3B1EB1BFF190F00E95A61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */; };
 		65E3B1EE1BFF190F00E95A61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */; };
 		AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15AF2A1E1258420038DA2D /* BeaconArea.swift */; };
-		AE2990551E4486C5008AA544 /* BeaconsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE2990531E4486C4008AA544 /* BeaconsData.xcdatamodeld */; };
-		AE2990601E448AD6008AA544 /* MyBeacon+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29905E1E448AD6008AA544 /* MyBeacon+CoreDataClass.swift */; };
-		AE2990611E448AD6008AA544 /* MyBeacon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE29905F1E448AD6008AA544 /* MyBeacon+CoreDataProperties.swift */; };
 		AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9C8C041E00F2A30079D7CF /* BeaconView.swift */; };
+		AEBF4E041E482E0800D9F56A /* BeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E031E482E0800D9F56A /* BeaconData.swift */; };
+		AEBF4E061E485CCA00D9F56A /* BeaconsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */; };
+		AEBF4E091E48659700D9F56A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E081E48659700D9F56A /* Config.swift */; };
+		AEBF4E0B1E48702000D9F56A /* CLBeacon_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */; };
+		AEBF4E0F1E48789700D9F56A /* BCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */; };
 		AEECB91E1E44754C000F91AC /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +31,12 @@
 		65E3B1ED1BFF190F00E95A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E3B1EF1BFF190F00E95A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE15AF2A1E1258420038DA2D /* BeaconArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconArea.swift; sourceTree = "<group>"; };
-		AE2990541E4486C5008AA544 /* BeaconsData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeaconsData.xcdatamodel; sourceTree = "<group>"; };
-		AE29905E1E448AD6008AA544 /* MyBeacon+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MyBeacon+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AE29905F1E448AD6008AA544 /* MyBeacon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MyBeacon+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AE9C8C041E00F2A30079D7CF /* BeaconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
+		AEBF4E031E482E0800D9F56A /* BeaconData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconData.swift; sourceTree = "<group>"; };
+		AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsManager.swift; sourceTree = "<group>"; };
+		AEBF4E081E48659700D9F56A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLBeacon_Ext.swift; sourceTree = "<group>"; };
+		AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCoordinate.swift; sourceTree = "<group>"; };
 		AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,23 +75,25 @@
 				AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */,
 				AE9C8C041E00F2A30079D7CF /* BeaconView.swift */,
 				AE15AF2A1E1258420038DA2D /* BeaconArea.swift */,
+				AEBF4E081E48659700D9F56A /* Config.swift */,
+				AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */,
+				AEBF4E071E4863B800D9F56A /* Manager */,
 				65E3B1E71BFF190F00E95A61 /* Main.storyboard */,
-				65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */,
 				65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */,
+				65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */,
 				65E3B1EF1BFF190F00E95A61 /* Info.plist */,
-				AE2990621E448AE6008AA544 /* Core Data */,
 			);
 			path = DetectBeacon;
 			sourceTree = "<group>";
 		};
-		AE2990621E448AE6008AA544 /* Core Data */ = {
+		AEBF4E071E4863B800D9F56A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				AE29905E1E448AD6008AA544 /* MyBeacon+CoreDataClass.swift */,
-				AE29905F1E448AD6008AA544 /* MyBeacon+CoreDataProperties.swift */,
-				AE2990531E4486C4008AA544 /* BeaconsData.xcdatamodeld */,
+				AEBF4E031E482E0800D9F56A /* BeaconData.swift */,
+				AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */,
+				AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */,
 			);
-			name = "Core Data";
+			name = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,14 +174,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBF4E0B1E48702000D9F56A /* CLBeacon_Ext.swift in Sources */,
 				AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */,
-				AE2990551E4486C5008AA544 /* BeaconsData.xcdatamodeld in Sources */,
 				AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */,
+				AEBF4E061E485CCA00D9F56A /* BeaconsManager.swift in Sources */,
+				AEBF4E0F1E48789700D9F56A /* BCoordinate.swift in Sources */,
 				65E3B1E61BFF190F00E95A61 /* ViewController.swift in Sources */,
-				AE2990601E448AD6008AA544 /* MyBeacon+CoreDataClass.swift in Sources */,
+				AEBF4E041E482E0800D9F56A /* BeaconData.swift in Sources */,
+				AEBF4E091E48659700D9F56A /* Config.swift in Sources */,
 				AEECB91E1E44754C000F91AC /* BeaconTableViewCell.swift in Sources */,
 				65E3B1E41BFF190F00E95A61 /* AppDelegate.swift in Sources */,
-				AE2990611E448AD6008AA544 /* MyBeacon+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +301,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5332NKLEL7;
 				INFOPLIST_FILE = DetectBeacon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.DetectBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5332NKLEL7;
 				INFOPLIST_FILE = DetectBeacon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JavanChen.DetectBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,19 +345,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		AE2990531E4486C4008AA544 /* BeaconsData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AE2990541E4486C5008AA544 /* BeaconsData.xcdatamodel */,
-			);
-			currentVersion = AE2990541E4486C5008AA544 /* BeaconsData.xcdatamodel */;
-			path = BeaconsData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 65E3B1D81BFF190F00E95A61 /* Project object */;
 }

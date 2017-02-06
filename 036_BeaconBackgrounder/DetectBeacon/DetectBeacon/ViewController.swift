@@ -7,21 +7,18 @@
 //
 
 import UIKit
-import CoreData
 import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var locationTextView: UITextView!
+    @IBOutlet weak var debugTextView: UITextView!
 
     var locationManager: CLLocationManager!
     var updateTimer: Timer?
     var current: Int = 0
     
-//    var viewA: BeaconView!
-//    var viewB: BeaconView!
-//    var viewC: BeaconView!
+    var scanBeacons: [CLBeacon] = []
 //    var nowBeaconArea: BeaconArea!
     
     @IBAction func actionAddBarButton(_ sender: UIBarButtonItem) {
@@ -30,6 +27,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        locationTextView.isEditable = false
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -37,32 +36,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         if updateTimer == nil {
             updateTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
         }
-        
-        
-//        view.backgroundColor = UIColor.gray
-    
-//        let viewHeight = UIScreen.main.bounds.height / 4
-//        let viewWidth = UIScreen.main.bounds.width
-//        
-//        viewA = BeaconView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight), name: "A")
-//        self.view.addSubview(viewA)
-//        viewB = BeaconView(frame: CGRect(x: 0, y: viewHeight, width: viewWidth, height: viewHeight), name: "B")
-//        self.view.addSubview(viewB)
-//        viewC = BeaconView(frame: CGRect(x: 0, y: viewHeight * 2, width: viewWidth, height: viewHeight), name: "C")
-//        self.view.addSubview(viewC)
-//        nowBeaconArea = BeaconArea()
-        
+
+        // Beacons Data
+        BeaconsManager.sharedInstance.fetchBeacons()
+        if BeaconsManager.sharedInstance.beacons.count == 0 {
+            let beaconA = BeaconData(name: "A", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0xFFE1)
+            let beaconB = BeaconData(name: "B", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0x5566)
+            let beaconC = BeaconData(name: "C", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0x5577)
+            BeaconsManager.sharedInstance.beacons.append(beaconA)
+            BeaconsManager.sharedInstance.beacons.append(beaconB)
+            BeaconsManager.sharedInstance.beacons.append(beaconC)
+        }
     }
-//    
-//    func getContext () -> NSManagedObjectContext {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        return appDelegate.persistentContainer.viewContext
-//    }
-//    
-//    func addBeacon(name:String, uuid:String, major:String, minor:String) {
-//        let context = getContext()
-//        let beacon = NSEntityDescription.insertNewObject(forEntityName: "MyBeacon", into: self.)
-//    }
     
     func doSomething() {
         current += 1
@@ -70,14 +55,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
     }
     
-    
     // MARK: - UITableView Data Source
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return BeaconsManager.sharedInstance.beacons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconTableViewCell", for: indexPath) as! BeaconTableViewCell
+        let beacon = BeaconsManager.sharedInstance.beacons[indexPath.row]
+        cell.mainTitleLabel.text = beacon.name
+        cell.accessoryType = .disclosureIndicator
+        
+        if let scanBeacon = scanBeacons.filter({ $0.minor == beacon.minor }).first {
+            cell.updateBeaconData(proximity: scanBeacon.proximity, distance: scanBeacon.accuracy)
+        } else {
+            cell.updateBeaconData(proximity: CLProximity.unknown, distance: 0)
+        }
         
         return cell
     }
@@ -98,10 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     }
     
     func startScanning() {
-//        let uuid = UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935")!
-        let uuid = UUID(uuidString: "AABBFFCC-5566-48D2-B060-D0F5A71096E0")!
-//        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
-        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "iBeacon")
+        let beaconRegion = CLBeaconRegion(proximityUUID: Config.DEFAULT_UUID, identifier: "iBeacon")
         beaconRegion.notifyOnExit = true
         beaconRegion.notifyOnEntry = true
         
@@ -111,9 +102,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
+        // update coordinate
+        if BeaconsManager.sharedInstance.updateCoordinate(newBeacons: beacons) {
+            debugTextView.text.removeAll()
+            for bcoordinate in BeaconsManager.sharedInstance.coordinates {
+                debugTextView.text.append(String(describing: bcoordinate.coordinate!) + "\n")
+            }
+        }
+        
+        // update show beacon
+        scanBeacons = beacons
+        tableView.reloadData()
+    
 //        var newBeacons = [CLBeacon]()
+        
+//        scanBeacons = beacons.filter({  })
+        
+//        print(beacons.count)
 //        for beacon in beacons {
-////            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
+//            print(beacon.proximityUUID)
+//            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
 //            if beacon.proximityUUID == UUID(uuidString: "AABBFFCC-5566-48D2-B060-D0F5A71096E0") {
 //                switch beacon.minor {
 //                case 0xFFE1:
@@ -130,7 +138,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
 //                }
 //            }
 //        }
-//        
+//
 //        // check is same area
 //        if !nowBeaconArea.checkIsSameArea(newBeacons: newBeacons) {
 //            // if diffrent, update now area

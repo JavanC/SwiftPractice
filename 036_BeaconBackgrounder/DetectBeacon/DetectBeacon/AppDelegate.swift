@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 }
 
 extension AppDelegate: CLLocationManagerDelegate {
@@ -100,22 +99,5 @@ extension AppDelegate: CLLocationManagerDelegate {
         print("Background task ended.")
         UIApplication.shared.endBackgroundTask(backgroundTask)
         backgroundTask = UIBackgroundTaskInvalid
-    }
-}
-
-extension CLBeacon {
-    func id() -> String {
-//        return String(describing: self.major) + String(describing: self.minor)
-        
-        
-        if self.minor == 0xFFE1 {
-            return "A"
-        } else if self.minor == 0x5566 {
-            return "B"
-        } else if self.minor == 0x5577 {
-            return "C"
-        } else {
-            return String(describing: self.minor)
-        }
     }
 }
