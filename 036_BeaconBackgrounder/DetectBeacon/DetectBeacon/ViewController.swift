@@ -58,6 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     // MARK: - UITableView Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(BeaconsManager.sharedInstance.beacons.count)
         return BeaconsManager.sharedInstance.beacons.count
     }
     
@@ -106,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         if BeaconsManager.sharedInstance.updateCoordinate(newBeacons: beacons) {
             debugTextView.text.removeAll()
             for bcoordinate in BeaconsManager.sharedInstance.coordinates {
-                debugTextView.text.append(String(describing: bcoordinate.coordinate!) + "\n")
+                debugTextView.text.append(bcoordinate.time + " - " + String(describing: bcoordinate.coordinate!) + "\n")
             }
         }
         

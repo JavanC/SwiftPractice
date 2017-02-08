@@ -44,7 +44,10 @@ class BeaconsManager: NSObject {
         }
         
         if coordinates.count == 0 || coordinate != coordinates.first!.coordinate {
-            coordinates.insert(BCoordinate(time: "time", coordinate: coordinate), at: 0)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd HH:mm:ss"
+            let time = formatter.string(from: Date())
+            coordinates.insert(BCoordinate(time: time, coordinate: coordinate), at: 0)
             return true
         }
         return false
