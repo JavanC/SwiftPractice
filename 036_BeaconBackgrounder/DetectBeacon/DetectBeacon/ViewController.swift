@@ -9,6 +9,10 @@
 import UIKit
 import CoreLocation
 
+protocol BeaconViewControllerDelegate {
+    func beaconsDataUpdate(beacons: [CLBeacon])
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var locationManager: CLLocationManager!
     var updateTimer: Timer?
     var current: Int = 0
+    var delegate: BeaconViewControllerDelegate?
     
     var scanBeacons: [CLBeacon] = []
 //    var nowBeaconArea: BeaconArea!
@@ -30,7 +35,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
 //        locationTextView.isEditable = false
         
         locationManager = CLLocationManager()
-        locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         
         if updateTimer == nil {
@@ -40,13 +44,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         // Beacons Data
         BeaconsManager.sharedInstance.fetchBeacons()
         if BeaconsManager.sharedInstance.beacons.count == 0 {
-            let beaconA = BeaconData(name: "A", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0xFFE1)
-            let beaconB = BeaconData(name: "B", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0x5566)
-            let beaconC = BeaconData(name: "C", uuid: Config.DEFAULT_UUID, major: 0xFFE1, minor: 0x5577)
+            let beaconA = BeaconData(bleUUID: Config.A_UUID, name: "A", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0xFFE1)
+            let beaconB = BeaconData(bleUUID: Config.B_UUID, name: "B", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5566)
+            let beaconC = BeaconData(bleUUID: Config.C_UUID, name: "C", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5577)
             BeaconsManager.sharedInstance.beacons.append(beaconA)
             BeaconsManager.sharedInstance.beacons.append(beaconB)
             BeaconsManager.sharedInstance.beacons.append(beaconC)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        locationManager.delegate = self
     }
     
     func doSomething() {
@@ -79,6 +87,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     // MARK: - UITableView Delegate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc : BeaconDetailViewController = mainStoryboard.instantiateViewController(withIdentifier: "BeaconDetailViewController") as! BeaconDetailViewController
+        vc.beaconData = BeaconsManager.sharedInstance.beacons[indexPath.row]
+        vc.vc = self
+        self.show(vc, sender: nil)
+    }
     
     // MARK: - CLLocationManager Delegate
     
@@ -114,6 +129,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         // update show beacon
         scanBeacons = beacons
         tableView.reloadData()
+        
+
+        // delegate
+        self.delegate?.beaconsDataUpdate(beacons: beacons)
     
 //        var newBeacons = [CLBeacon]()
         

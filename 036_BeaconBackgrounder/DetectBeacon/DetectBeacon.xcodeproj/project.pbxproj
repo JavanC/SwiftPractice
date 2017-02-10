@@ -20,6 +20,7 @@
 		AEBF4E0B1E48702000D9F56A /* CLBeacon_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */; };
 		AEBF4E0F1E48789700D9F56A /* BCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */; };
 		AEECB91E1E44754C000F91AC /* BeaconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */; };
+		AEF1A4D11E4DAE7A003FE5B6 /* BeaconDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1A4D01E4DAE7A003FE5B6 /* BeaconDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLBeacon_Ext.swift; sourceTree = "<group>"; };
 		AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BCoordinate.swift; sourceTree = "<group>"; };
 		AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewCell.swift; sourceTree = "<group>"; };
+		AEF1A4D01E4DAE7A003FE5B6 /* BeaconDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			children = (
 				65E3B1E31BFF190F00E95A61 /* AppDelegate.swift */,
 				65E3B1E51BFF190F00E95A61 /* ViewController.swift */,
+				AEF1A4D01E4DAE7A003FE5B6 /* BeaconDetailViewController.swift */,
 				AEECB91D1E44754C000F91AC /* BeaconTableViewCell.swift */,
 				AE9C8C041E00F2A30079D7CF /* BeaconView.swift */,
 				AE15AF2A1E1258420038DA2D /* BeaconArea.swift */,
@@ -177,6 +180,7 @@
 				AEBF4E0B1E48702000D9F56A /* CLBeacon_Ext.swift in Sources */,
 				AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */,
 				AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */,
+				AEF1A4D11E4DAE7A003FE5B6 /* BeaconDetailViewController.swift in Sources */,
 				AEBF4E061E485CCA00D9F56A /* BeaconsManager.swift in Sources */,
 				AEBF4E0F1E48789700D9F56A /* BCoordinate.swift in Sources */,
 				65E3B1E61BFF190F00E95A61 /* ViewController.swift in Sources */,
