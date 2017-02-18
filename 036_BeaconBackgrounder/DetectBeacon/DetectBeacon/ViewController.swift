@@ -32,8 +32,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        locationTextView.isEditable = false
-        
         locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         
@@ -44,7 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         // Beacons Data
         BeaconsManager.sharedInstance.fetchBeacons()
         if BeaconsManager.sharedInstance.beacons.count == 0 {
-            let beaconA = BeaconData(bleUUID: Config.A_UUID, name: "A", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0xFFE1)
+            let beaconA = BeaconData(bleUUID: Config.A_UUID, name: "Javan's", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0xFFE1)
             let beaconB = BeaconData(bleUUID: Config.B_UUID, name: "B", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5566)
             let beaconC = BeaconData(bleUUID: Config.C_UUID, name: "C", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5577)
             BeaconsManager.sharedInstance.beacons.append(beaconA)
@@ -59,14 +57,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     
     func doSomething() {
         current += 1
-        print("Hi! \(current)")
-        print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+//        print("Hi! \(current)")
+//        print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
     }
     
     // MARK: - UITableView Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(BeaconsManager.sharedInstance.beacons.count)
         return BeaconsManager.sharedInstance.beacons.count
     }
     
@@ -91,6 +88,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vc : BeaconDetailViewController = mainStoryboard.instantiateViewController(withIdentifier: "BeaconDetailViewController") as! BeaconDetailViewController
         vc.beaconData = BeaconsManager.sharedInstance.beacons[indexPath.row]
+        vc.beaconIndex = indexPath.row
         vc.vc = self
         self.show(vc, sender: nil)
     }
@@ -129,48 +127,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         // update show beacon
         scanBeacons = beacons
         tableView.reloadData()
-        
-
+    
         // delegate
         self.delegate?.beaconsDataUpdate(beacons: beacons)
-    
-//        var newBeacons = [CLBeacon]()
-        
-//        scanBeacons = beacons.filter({  })
-        
-//        print(beacons.count)
-//        for beacon in beacons {
-//            print(beacon.proximityUUID)
-//            if beacon.proximityUUID == UUID(uuidString: "74278BDA-B644-4520-8F0C-720EAF059935") {
-//            if beacon.proximityUUID == UUID(uuidString: "AABBFFCC-5566-48D2-B060-D0F5A71096E0") {
-//                switch beacon.minor {
-//                case 0xFFE1:
-//                    viewA.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
-//                    newBeacons.append(beacon)
-//                case 0x5566:
-//                    viewB.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
-//                    newBeacons.append(beacon)
-//                case 0x5577:
-//                    viewC.updateBeaconData(proximity: beacon.proximity, distance: beacon.accuracy)
-//                    newBeacons.append(beacon)
-//                default:
-//                    break
-//                }
-//            }
-//        }
-//
-//        // check is same area
-//        if !nowBeaconArea.checkIsSameArea(newBeacons: newBeacons) {
-//            // if diffrent, update now area
-//            nowBeaconArea.updateAreaCoordinate(newBeacons: newBeacons)
-//            print("Change Beacon Area")
-//            // print to text view
-//            var str = ""
-//            for coordinate in nowBeaconArea.coordinate.enumerated() {
-//                str += coordinate.element.key + " : " + String(describing: coordinate.element.value.hashValue) + ", "
-//            }
-//            locationTextView.text.append(str + "\n")
-//        }
     }
 }
 

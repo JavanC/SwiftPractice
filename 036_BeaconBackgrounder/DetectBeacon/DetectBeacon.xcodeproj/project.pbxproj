@@ -13,6 +13,8 @@
 		65E3B1EB1BFF190F00E95A61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */; };
 		65E3B1EE1BFF190F00E95A61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */; };
 		AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15AF2A1E1258420038DA2D /* BeaconArea.swift */; };
+		AE161C351E5195D4000AF0B9 /* NSData_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161C341E5195D4000AF0B9 /* NSData_Ext.swift */; };
+		AE161C381E51996C000AF0B9 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE161C371E51996C000AF0B9 /* BluetoothManager.swift */; };
 		AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9C8C041E00F2A30079D7CF /* BeaconView.swift */; };
 		AEBF4E041E482E0800D9F56A /* BeaconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E031E482E0800D9F56A /* BeaconData.swift */; };
 		AEBF4E061E485CCA00D9F56A /* BeaconsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */; };
@@ -32,6 +34,8 @@
 		65E3B1ED1BFF190F00E95A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65E3B1EF1BFF190F00E95A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE15AF2A1E1258420038DA2D /* BeaconArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconArea.swift; sourceTree = "<group>"; };
+		AE161C341E5195D4000AF0B9 /* NSData_Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSData_Ext.swift; sourceTree = "<group>"; };
+		AE161C371E51996C000AF0B9 /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		AE9C8C041E00F2A30079D7CF /* BeaconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconView.swift; sourceTree = "<group>"; };
 		AEBF4E031E482E0800D9F56A /* BeaconData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconData.swift; sourceTree = "<group>"; };
 		AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsManager.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				AEBF4E081E48659700D9F56A /* Config.swift */,
 				AEBF4E0A1E48702000D9F56A /* CLBeacon_Ext.swift */,
 				AEBF4E071E4863B800D9F56A /* Manager */,
+				AE161C361E51992C000AF0B9 /* Extention */,
 				65E3B1E71BFF190F00E95A61 /* Main.storyboard */,
 				65E3B1EC1BFF190F00E95A61 /* LaunchScreen.storyboard */,
 				65E3B1EA1BFF190F00E95A61 /* Assets.xcassets */,
@@ -89,12 +94,21 @@
 			path = DetectBeacon;
 			sourceTree = "<group>";
 		};
+		AE161C361E51992C000AF0B9 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				AE161C341E5195D4000AF0B9 /* NSData_Ext.swift */,
+			);
+			name = Extention;
+			sourceTree = "<group>";
+		};
 		AEBF4E071E4863B800D9F56A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				AEBF4E031E482E0800D9F56A /* BeaconData.swift */,
 				AEBF4E0E1E48789700D9F56A /* BCoordinate.swift */,
 				AEBF4E051E485CC900D9F56A /* BeaconsManager.swift */,
+				AE161C371E51996C000AF0B9 /* BluetoothManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 			files = (
 				AEBF4E0B1E48702000D9F56A /* CLBeacon_Ext.swift in Sources */,
 				AE15AF2B1E1258420038DA2D /* BeaconArea.swift in Sources */,
+				AE161C381E51996C000AF0B9 /* BluetoothManager.swift in Sources */,
 				AE9C8C051E00F2A30079D7CF /* BeaconView.swift in Sources */,
 				AEF1A4D11E4DAE7A003FE5B6 /* BeaconDetailViewController.swift in Sources */,
 				AEBF4E061E485CCA00D9F56A /* BeaconsManager.swift in Sources */,
@@ -187,6 +202,7 @@
 				AEBF4E041E482E0800D9F56A /* BeaconData.swift in Sources */,
 				AEBF4E091E48659700D9F56A /* Config.swift in Sources */,
 				AEECB91E1E44754C000F91AC /* BeaconTableViewCell.swift in Sources */,
+				AE161C351E5195D4000AF0B9 /* NSData_Ext.swift in Sources */,
 				65E3B1E41BFF190F00E95A61 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
