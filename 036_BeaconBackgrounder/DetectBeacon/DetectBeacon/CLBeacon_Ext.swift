@@ -12,8 +12,6 @@ import CoreLocation
 extension CLBeacon {
     func id() -> String {
         //        return String(describing: self.major) + String(describing: self.minor)
-        
-        
         if self.minor == 0xFFE1 {
             return "A"
         } else if self.minor == 0x5566 {
