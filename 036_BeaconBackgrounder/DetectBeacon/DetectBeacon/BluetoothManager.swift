@@ -11,6 +11,7 @@ import CoreBluetooth
 
 protocol BluetoothManagerDelegate {
     func debugLogUpdate(debugLog: String)
+    func updateLightStatus(isLightOn: Bool)
 }
 
 enum ValueType {
@@ -58,13 +59,13 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     // MARK: - Custom
     
     func stopScan() {
-        delegate?.debugLogUpdate(debugLog: "\nTime out, Stop Scan.")
+        delegate?.debugLogUpdate(debugLog: "\nTime out, Stop Scan.\n")
         btCentralManager.stopScan()
     }
     
     func stopConnected() {
         if btPeripheral != nil {
-            delegate?.debugLogUpdate(debugLog: "\nTime out, Stop Connected.")
+            delegate?.debugLogUpdate(debugLog: "\nTime out, Stop Connected.\n")
             btCentralManager.cancelPeripheralConnection(btPeripheral!)
         }
     }
@@ -90,8 +91,8 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     internal func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         peripheral.delegate = self
-        delegate?.debugLogUpdate(debugLog: "Success!\nDiscover Light Service....................")
-        peripheral.discoverServices([Config.LIGHT_Service])
+            delegate?.debugLogUpdate(debugLog: "Success!\nDiscover Light Service....................")
+            peripheral.discoverServices([Config.LIGHT_Service])
     }
     
     // MARK: - CBPeripheral Delegate
@@ -113,7 +114,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                 let data = isLightOn ? Config.LIGHT_ON_COMMAND : Config.LIGHT_OFF_COMMAND
                 peripheral.writeValue(data, for: char, type: .withResponse)
             case .Read:
-                delegate?.debugLogUpdate(debugLog: "Success!\nRead Value......................................")
+                delegate?.debugLogUpdate(debugLog: "Success!\nRead Value.....................................")
                 self.btCharacteristic = char
                 peripheral.readValue(for: char)
             }
@@ -124,16 +125,21 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if error != nil{
             print("Error: \(error?.localizedDescription)")
         } else {
-            delegate?.debugLogUpdate(debugLog: "Success!\nLight is \(self.isLightOn ? "On" : "Off"). Disconnect BLE.\n")
+            self.delegate?.debugLogUpdate(debugLog: "Success!\nLight is \(self.isLightOn ? "On" : "Off"). Disconnect BLE.\n")
+            self.delegate?.updateLightStatus(isLightOn: isLightOn)
             btCentralManager.cancelPeripheralConnection(btPeripheral!)
             timer?.invalidate()
         }
     }
     
     internal func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print(characteristic)
+        // print(characteristic)
         if let value = characteristic.value {
-            delegate?.debugLogUpdate(debugLog: "read: \((value as NSData).getByteArray()!)")
+            self.isLightOn = (value == Config.LIGHT_ON_COMMAND)
+            self.delegate?.updateLightStatus(isLightOn: isLightOn)
+            delegate?.debugLogUpdate(debugLog: "Success!\nLight is \(self.isLightOn ? "On" : "Off"). Disconnect BLE.\n")
+            btCentralManager.cancelPeripheralConnection(btPeripheral!)
+            timer?.invalidate()
         }
     }
 }

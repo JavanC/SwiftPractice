@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-//import CoreBluetooth
 
 class BeaconDetailViewController: UIViewController, BeaconViewControllerDelegate, BluetoothManagerDelegate {
     
@@ -26,7 +25,6 @@ class BeaconDetailViewController: UIViewController, BeaconViewControllerDelegate
     var beaconIndex: Int!
     var beaconData: BeaconData!
     var vc: ViewController!
-//    var isLightOn: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +34,7 @@ class BeaconDetailViewController: UIViewController, BeaconViewControllerDelegate
         self.nameTextField.text = beaconData.name
         self.majorTextFirld.text = beaconData.major.stringValue
         self.minorTextField.text = beaconData.minor.stringValue
+        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -51,48 +50,41 @@ class BeaconDetailViewController: UIViewController, BeaconViewControllerDelegate
         vc.delegate = self
         BluetoothManager.sharedInstance.delegate = self
         
+        self.lightSwitchButton.layer.borderColor = UIColor.lightGray.cgColor
+        self.lightSwitchButton.setTitle("Loading...", for: .normal)
+        self.lightSwitchButton.isEnabled = false
+        
         self.debugTextView.text = ""
-        DispatchQueue.main.asyncAfter(deadline: 0.5) {
-            BluetoothManager.sharedInstance.readLightStatue(beaconData: beaconData)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            BluetoothManager.sharedInstance.readLightStatue(beaconData: self.beaconData)
         }
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         self.lightSwitchButton.layer.cornerRadius = lightSwitchButton.frame.width / 2
         self.lightSwitchButton.layer.borderWidth = 3
-        self.lightSwitchButton.layer.borderColor = UIColor.green.cgColor
         self.lightSwitchButton.layer.masksToBounds = true
-    }
-    
-    // TextFieldEditingChangeed
-    
-    @IBAction func textFieldEditingDidEnd(_ sender: UITextField) {
-        if sender.text == "" { return }
-        if sender == bleUUIDTextField {
-            beaconData.bleUUID = UUID(uuidString: bleUUIDTextField.text!)!
-        } else if sender == beaconUUIDTextField {
-            beaconData.uuid = UUID(uuidString: beaconUUIDTextField.text!)
-        } else if sender == nameTextField {
-            beaconData.name = nameTextField.text
-        } else if sender == majorTextFirld {
-            if let myInteger = Int(majorTextFirld.text!) {
-                beaconData.major = NSNumber(value:myInteger)
-            }
-        } else if sender == minorTextField {
-            if let myInteger = Int(minorTextField.text!) {
-                beaconData.major = NSNumber(value:myInteger)
-            }
-        }
     }
     
     // MARK: - Button Event
     
     @IBAction func saveActionBarButton(_ sender: UIBarButtonItem) {
+        beaconData.bleUUID = UUID(uuidString: bleUUIDTextField.text!)!
+        beaconData.uuid = UUID(uuidString: beaconUUIDTextField.text!)
+        beaconData.name = nameTextField.text
+        if let myInteger = Int(majorTextFirld.text!) {
+            beaconData.major = NSNumber(value:myInteger)
+        }
+        if let myInteger = Int(minorTextField.text!) {
+            beaconData.minor = NSNumber(value:myInteger)
+        }
         BeaconsManager.sharedInstance.beacons[beaconIndex] = beaconData
     }
     
     @IBAction func actionLightSwitchButton(_ sender: UIButton) {
-        BluetoothManager.sharedInstance.changeLightStatus(beaconData: beaconData, isLightOn: true)
+        let isLightOn = lightSwitchButton.tag == 1 ? true : false
+        BluetoothManager.sharedInstance.changeLightStatus(beaconData: beaconData, isLightOn: !isLightOn)
     }
 
     // MARK: - BeaconViewController Delegate
@@ -119,5 +111,12 @@ class BeaconDetailViewController: UIViewController, BeaconViewControllerDelegate
     func debugLogUpdate(debugLog: String) {
         print(debugLog)
         debugTextView.text.append(debugLog)
+    }
+    
+    func updateLightStatus(isLightOn: Bool) {
+        lightSwitchButton.isEnabled = true
+        lightSwitchButton.layer.borderColor = isLightOn ? UIColor.green.cgColor : UIColor.red.cgColor
+        lightSwitchButton.setTitle(isLightOn ? "Light On" : "Light Off", for: .normal)
+        lightSwitchButton.tag = isLightOn ? 1 : 0
     }
 }

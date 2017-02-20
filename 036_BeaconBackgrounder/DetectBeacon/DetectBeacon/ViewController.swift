@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreLocation
+import MessageUI
 
 protocol BeaconViewControllerDelegate {
     func beaconsDataUpdate(beacons: [CLBeacon])
 }
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var debugTextView: UITextView!
@@ -43,8 +44,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         BeaconsManager.sharedInstance.fetchBeacons()
         if BeaconsManager.sharedInstance.beacons.count == 0 {
             let beaconA = BeaconData(bleUUID: Config.A_UUID, name: "Javan's", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0xFFE1)
-            let beaconB = BeaconData(bleUUID: Config.B_UUID, name: "B", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5566)
-            let beaconC = BeaconData(bleUUID: Config.C_UUID, name: "C", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5577)
+            let beaconB = BeaconData(bleUUID: Config.B_UUID, name: "penguin1", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5566)
+            let beaconC = BeaconData(bleUUID: Config.C_UUID, name: "penguin2", uuid: Config.DEFAULT_UUID, major: 0x9712, minor: 0x5577)
             BeaconsManager.sharedInstance.beacons.append(beaconA)
             BeaconsManager.sharedInstance.beacons.append(beaconB)
             BeaconsManager.sharedInstance.beacons.append(beaconC)
@@ -59,6 +60,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
         current += 1
 //        print("Hi! \(current)")
 //        print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
+    }
+    
+    // MARK: - Button Event
+    
+    @IBAction func actionBarButton(_ sender: UIBarButtonItem) {
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients([])
+        mailVC.setSubject("Beacon's coordinate Data")
+        mailVC.setMessageBody(debugTextView.text, isHTML: false)
+        present(mailVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Email Delegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UITableView Data Source
